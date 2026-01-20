@@ -57,33 +57,20 @@ modules:
         - upower
         - btop
         - libheif
-    replace:
-      - from-repo: rpmfusion-free
-        packages:
-          - old: ffmpeg-free
-            new: ffmpeg
-          - old: libavcodec-free
-            new: libavcodec
-          - old: libfdk-aac-free
-            new: libfdk-aac
-          - libva
-          - mesa-dri-drivers
-          - mesa-filesystem
-          - mesa-libEGL
-          - mesa-libGL
-          - mesa-libgbm
-          - mesa-va-drivers
-          - mesa-vulkan-drivers
+        - neovim
+        - fzf
+        - fd-find
+        - ripgrep
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-    # group-install:
-    #   with-optional: true # install optional packages from group
-    #   packages:
-    #     - development-tools
+    group-install:
+      with-optional: true # install optional packages from group
+      packages:
+        - development-tools
     
 
   - type: default-flatpaks
@@ -93,7 +80,6 @@ modules:
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
           - org.mozilla.firefox
-          - org.gnome.Loupe
           - com.github.tchx84.Flatseal
       - scope: user # Also add Flathub user repo, but no user packages
 
