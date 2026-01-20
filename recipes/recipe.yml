@@ -3,11 +3,11 @@
 # image will be published to ghcr.io/<user>/<name>
 name: ublue-niri
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: minimal niri on ublue
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/base-main
+image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -16,21 +16,83 @@ modules:
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
+  - type: bling
+    install:
+      - rpmfusion # install RPMFusion repos, including tainted repos & disable negativo17 repos if installed
+  - type: brew
+    nofile-limits: true # increase nofile limits
+    brew-analytics: false # disable telemetry
+  
   - type: dnf
     repos:
+      cleanup: true
       copr:
         - atim/starship
+      nonfree: rpmfusion
+
     install:
       packages:
-        - micro
-        - starship
+        - vim
+        - niri
+        - xwayland-satellite
+        - rofi
+        - sddm
+        - waybar
+        - swaylock
+        - swayidle
+        - alacritty
+        - grim
+        - slurp
+        - fuzzel
+        - pavucontrol
+        - playerctl
+        - gnome-keyring
+        - network-manager-applet
+        - firewall-config
+        - polkit
+        - polkit-gnome
+        - tailscale
+        - upower
+        - btop
+        - gstreamer1-plugin-vaapi
+        - libheif
+    replace:
+      - from-repo: fedora-multimedia
+        packages:
+          - old: ffmpeg-free
+            new: ffmpeg
+          - old: libavcodec-free
+            new: libavcodec
+          - old: libfdk-aac-free
+            new: libfdk-aac
+          - libva
+          - mesa-dri-drivers
+          - mesa-filesystem
+          - mesa-libEGL
+          - mesa-libGL
+          - mesa-libgbm
+          - mesa-va-drivers
+          - mesa-vulkan-drivers
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+    group-install:
+      with-optional: true # install optional packages from group
+      packages:
+        - development-tools
+    
+  - type: dnf
+    repos:
+      cleanup: true
+      nonfree: rpmfusion
+    replace:
+      - from-repo: rpmfusion-nonfree
+        packages:
+        - old: libva-intel-media-driver
+          new: intel-media-driver
 
   - type: default-flatpaks
     configurations:
@@ -40,6 +102,7 @@ modules:
         install: # system flatpaks we want all users to have and not remove
           - org.mozilla.firefox
           - org.gnome.Loupe
+          - com.github.tchx84.Flatseal
       - scope: user # Also add Flathub user repo, but no user packages
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
