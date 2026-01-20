@@ -54,7 +54,6 @@ modules:
         - tailscale
         - upower
         - btop
-        - gstreamer1-plugin-vaapi
         - libheif
     replace:
       - from-repo: fedora-multimedia
