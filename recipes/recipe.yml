@@ -121,7 +121,6 @@ modules:
       enabled:
         - swayosd-libinput-backend.service
         - podman.socket
-        - 
     user:
       enabled:
         - waybar.service
