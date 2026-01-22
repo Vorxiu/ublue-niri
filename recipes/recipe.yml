@@ -156,7 +156,6 @@ modules:
   - type: script
     snippets:
       - "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-      - "dconf write /org/gnome/desktop/interface/color-scheme '\"prefer-dark\"'"
       - "gsettings set org.gnome.desktop.wm.preferences button-layout :" # example: ld alternatives symlink workaround
   - type: yafti
     custom-flatpaks:
