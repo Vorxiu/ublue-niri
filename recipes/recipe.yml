@@ -30,7 +30,6 @@ modules:
       cleanup: true
       copr:
         - erikreider/swayosd
-        - zeno/scrcpy
       nonfree: rpmfusion
 
 
@@ -41,71 +40,72 @@ modules:
         - alacritty
       packages:
         - android-tools
-        - scrcpy
-        - code
-        - niri
-        - rofi
-        - rofimoji
-        - xwayland-satellite
-        - kitty
-        - waybar
-        - swaylock
-        - swayidle
-        - swaybg
-        - swayosd
-        - grim
-        - slurp
-        - wget
-        - fuzzel
-        - pavucontrol
-        - playerctl
-        - gnome-keyring
-        - network-manager-applet
-        - firewall-config
-        - polkit
-        - polkit-gnome
-        - tailscale
-        - upower
-        - powertop
         - btop
-        - libheif
-        - neovim
-        - nautilus
-        - fzf
-        - fd-find
-        - rclone
-        - ripgrep
-        - git
-        - gcc
-        - SwayNotificationCenter
-        - curl
-        - make
-        - git
-        - fuse-overlayfs
-        - zsh
-        - zsh-autosuggestions
-        - zsh-syntax-highlighting
-        - toolbox
-        - distrobox
-        - gvfs
-        - gvfs-smb
-        - gvfs-mtp
-        - sshfs
-        - kde-connect
-        - qt6ct
-        - qt6-qtwayland
-        - nwg-wrapper
-        - wl-clipboard
-        - sddm
+        - code
         - copyq
-        - zoxide
-        - stow
+        - curl
+        - fd-find
+        - firewall-config
+        - fuse-overlayfs # appimage support
+        - fuzzel
+        - gcc
+        - git
+        - gnome-keyring
+        - grim
+        - gvfs
+        - gvfs-mtp
+        - gvfs-nfs
+        - gvfs-smb
+        - imv
+        - kde-connect # nice to have
+        - kitty
+        - mako
+        - make
+        - man-db
+        - nautilus
+        - neovim
+        - network-manager-applet
+        - niri
+        - nwg-wrapper
         - p7zip
         - p7zip-plugins
-        - tealdeer
-        - ptyxis
+        - pavucontrol
+        - playerctl
+        - polkit
+        - polkit-gnome 
         - polkit-kde
-        - mako
+        - powertop
+        - ptyxis
+        - python3-pip
+        - qt6ct
+        - qt6-qtwayland
+        - rclone
+        - ripgrep
+        - rofi
+        - rofimoji
+        - rustup
+        - sddm
+        - slurp
+        - sshfs
+        - stow
+        - swaybg
+        - swayidle
+        - swaylock
+        - swayosd
+        - tailscale
+        - tealdeer
+        - toolbox
+        - tuned-ppd
+        - upower
+        - waybar
+        - wget
+        - wf-recorder
+        - xdg-desktop-portal-gnome
+        - xdg-desktop-portal-gtk
+        - xwayland-satellite
+        - zoxide
+        - zsh
+         
 
     remove:
       packages:
@@ -122,15 +122,17 @@ modules:
       enabled:
         - swayosd-libinput-backend.service
         - podman.socket
+        - sddm.service
     user:
       enabled:
         - waybar.service
         - gnome-keyring-daemon.socket
-        - gnome-polkit.service
+        # - gnome-polkit.service
         - swaybg.service
         - swayidle.service
-        - swaync.service
+        - mako.service
         - copyq.service
+        - plasma-polkit-agent.service
 
   - type: fonts
     fonts:
@@ -138,10 +140,6 @@ modules:
         - Terminus
         - JetBrainsMono
         - NerdFontsSymbolsOnly
-      google-fonts:
-        - Roboto
-        - Open Sans
-        - Inter
 
   - type: default-flatpaks
     configurations:
@@ -158,6 +156,7 @@ modules:
   - type: script
     snippets:
       - "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+      - "dconf write /org/gnome/desktop/interface/color-scheme '\"prefer-dark\"'"
       - "gsettings set org.gnome.desktop.wm.preferences button-layout :" # example: ld alternatives symlink workaround
   - type: yafti
     custom-flatpaks:
