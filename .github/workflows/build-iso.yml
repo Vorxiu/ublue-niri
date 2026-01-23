@@ -56,3 +56,12 @@ jobs:
           path: ./output/*-CHECKSUM
           if-no-files-found: error
           retention-days: 7
+
+      - name: Upload ISO to Google Drive
+        uses: adityak74/google-drive-upload-git-action@main
+        with:
+          credentials: ${{ secrets.CREDENTIALS }}
+          filename: ./output/*.iso
+          folderId: ${{ secrets.FOLDER_ID }}
+          name: ${{ github.event.repository.name }}-latest.iso
+          overwrite: "true"
