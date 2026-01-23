@@ -28,7 +28,7 @@ jobs:
       #   uses: ublue-os/remove-unwanted-software@v7
 
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install bluebuild cli
         uses: baptiste0928/cargo-install@v3
