@@ -1,4 +1,4 @@
-name: build-iso
+name: build-iso-titanoboa
 on:
   workflow_dispatch: 
 
