@@ -24,22 +24,21 @@ jobs:
           - recipe.yml
 
     steps:
-      - name: Maximize build space
-        uses: ublue-os/remove-unwanted-software@v7
+      # - name: Maximize build space
+      #   uses: ublue-os/remove-unwanted-software@v7
 
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install BlueBuild CLI
-        run: |
-          bash <(curl -s https://raw.githubusercontent.com/blue-build/cli/main/install.sh)
+      - name: Install bluebuild cli
+        uses: baptiste0928/cargo-install@v3
+        with:
+          crate: blue-build
+          args: "--locked"
 
       - name: Generate ISO
         run: |
-          sudo bluebuild generate-iso \
-            --iso-name ${{ github.event.repository.name }}-latest.iso \
-            --output-dir ./output \
-            image ${{ env.IMAGE_REGISTRY }}/${{ github.event.repository.name }}:latest
+          sudo bluebuild generate-iso --iso-name ${{ github.event.repository.name }}-latest.iso --output-dir ./output image ${{ env.IMAGE_REGISTRY }}/${{ github.event.repository.name }}:latest
 
       - name: Upload ISO as artifact
         uses: actions/upload-artifact@v4
