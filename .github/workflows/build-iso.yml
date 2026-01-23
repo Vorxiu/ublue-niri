@@ -37,13 +37,13 @@ jobs:
 
       - name: Generate ISO
         run: |
-          sudo -E /home/runner/.cargo-install/blue-build/bin/bluebuild generate-iso --iso-name ${{ github.event.repository.name }}-latest.iso --output-dir ./output image ${{ env.IMAGE_REGISTRY }}/${{ github.event.repository.name }}
+          sudo -E /home/runner/.cargo-install/blue-build/bin/bluebuild generate-iso --iso-name ${{ github.event.repository.name }}-latest.iso image ${{ env.IMAGE_REGISTRY }}/${{ github.event.repository.name }}
 
       - name: Upload ISO as artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ github.event.repository.name }}-latest-iso
-          path: ./output/*.iso
+          path: ./*.iso
           if-no-files-found: error
           retention-days: 7
 
@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ github.event.repository.name }}-latest-checksum
-          path: ./output/*-CHECKSUM
+          path: ./*-CHECKSUM
           if-no-files-found: error
           retention-days: 7
 
@@ -59,7 +59,7 @@ jobs:
         uses: adityak74/google-drive-upload-git-action@main
         with:
           credentials: ${{ secrets.CREDENTIALS }}
-          filename: ./output/*.iso
+          filename: ./*.iso
           folderId: ${{ secrets.FOLDER_ID }}
           name: ${{ github.event.repository.name }}-latest.iso
           overwrite: "true"
