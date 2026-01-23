@@ -14,7 +14,7 @@ jobs:
     name: Build ISO
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
       id-token: write
     strategy:
@@ -34,7 +34,7 @@ jobs:
         id: build
         uses: ublue-os/titanoboa@main
         with:
-          image-ref: ghcr.io/vorxiu/ublue-niri:latest
+          image-ref: ghcr.io/vorxiu/ublue-niri:latestrootfs-install-livesys-scripts
           # flatpaks-list: ${{ github.workspace }}/flatpaks/system-flatpaks.list
           hook-post-rootfs: ${{ github.workspace }}/files/scripts/configure_iso.sh
           kargs: ""
@@ -63,11 +63,14 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      - name: Upload ISO to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
         with:
-          credentials: ${{ secrets.CREDENTIALS }}
-          filename: output/*.iso
-          folderId: ${{ secrets.FOLDER_ID }}
-          name: ${{ github.event.repository.name }}-latest.iso
-          overwrite: "true"
+          tag_name: ${{ github.run_number }}
+          name: ISO Build ${{ github.run_number }}
+          files: |
+            output/*.iso
+            output/*-CHECKSUM
+          draft: false
+          prerelease: false
+
