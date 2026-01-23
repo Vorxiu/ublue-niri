@@ -70,7 +70,6 @@ modules:
         - pavucontrol
         - playerctl
         - polkit
-        - polkit-gnome 
         - polkit-kde
         - powertop
         - ptyxis
