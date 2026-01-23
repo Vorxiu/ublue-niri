@@ -37,7 +37,7 @@ jobs:
 
       - name: Generate ISO
         run: |
-          sudo -E bluebuild generate-iso --iso-name ${{ github.event.repository.name }}-latest.iso --output-dir ./output image ${{ env.IMAGE_REGISTRY }}/${{ github.event.repository.name }}
+          sudo -E /home/runner/.cargo-install/blue-build/bin/bluebuild generate-iso --iso-name ${{ github.event.repository.name }}-latest.iso --output-dir ./output image ${{ env.IMAGE_REGISTRY }}/${{ github.event.repository.name }}
 
       - name: Upload ISO as artifact
         uses: actions/upload-artifact@v4
