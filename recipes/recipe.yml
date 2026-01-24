@@ -39,7 +39,6 @@ modules:
       allow-erasing: true
       exclude:
         - alacritty
-        - breeze-icon-theme
       packages:
         - hyprlock
         - android-tools
