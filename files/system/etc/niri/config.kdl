@@ -371,6 +371,8 @@ overview {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "swayosd-server"
+spawn-at-startup "copyq"
+
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -475,7 +477,7 @@ binds {
     Mod+Return hotkey-overlay-title="Quake terminal" { spawn-sh "kitten quick-access-terminal"; }
 
     Mod+Shift+T hotkey-overlay-title="Open a Terminal: ptyxis" { spawn "ptyxis"; }
-    Mod+space hotkey-overlay-title="Run an Application: rofi" { spawn "pkill rofi || rofi"; }
+    Mod+space hotkey-overlay-title="Run an Application: rofi" { spawn "pkill rofi || rofi -show drun"; }
     Mod+D hotkey-overlay-title="Run a Application Launcher: fuzzel" { spawn "fuzzel"; }
     Mod+semicolon hotkey-overlay-title="Open clipboard manager: copyq" { spawn "copyq toggle"; } // use the flatpak com.github.hluk.copyq
     Mod+B hotkey-overlay-title="Open web browser" { spawn "xdg-open https://"; }

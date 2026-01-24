@@ -39,9 +39,12 @@ modules:
       allow-erasing: true
       exclude:
         - alacritty
+        - breeze-icon-theme
       packages:
         - hyprlock
         - android-tools
+        - desktop-backgrounds-compat
+        - desktop-backgrounds-basic
         - btop
         - code
         - copyq
@@ -59,7 +62,7 @@ modules:
         - gvfs-mtp
         - gvfs-nfs
         - gvfs-smb
-        - kde-connect # nice to have
+       # - kde-connect # nice to have
         - kitty
         - mako
         - man-db
@@ -70,7 +73,7 @@ modules:
         - pavucontrol
         - playerctl
         - polkit
-        - polkit-kde
+        - lxqt-policykit
         - powertop
         - ptyxis
         - python3-pip
@@ -110,6 +113,7 @@ modules:
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)List of custom Flatpaks to inject to the default yafti.yml. Format is: PrettyName: org.example.flatpak_id
+        - breeze-icon-theme
       
   - type: systemd
   # this example disables automatic flatpak updates and enables a custom service unit for all users
@@ -122,12 +126,10 @@ modules:
       enabled:
         - waybar.service
         - gnome-keyring-daemon.socket
-        # - gnome-polkit.service
         - swaybg.service
         - swayidle.service
         - mako.service
-        - copyq.service
-        - plasma-polkit-agent.service
+        - lxqt-policykit.service
 
   - type: fonts
     fonts:
