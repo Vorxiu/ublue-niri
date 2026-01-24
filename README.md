@@ -43,8 +43,8 @@ cosign verify --key cosign.pub ghcr.io/vorxiu/ublue-niri
 ```
 
 ## TODO
-
-- ~~udev rules for system sounds (plug/unplug)~~
+- chezmoi for the dot files
+- udev rules for system sounds (plug/unplug)
 - ~~nicer lockscreen (hyprlock?)~~ 
 - docker installation
 - annanicy and annicy cpp rules
