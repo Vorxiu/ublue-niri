@@ -1,0 +1,7 @@
+[org.gnome.desktop.interface]
+gtk-theme='Adwaita-dark'
+color-scheme='prefer-dark'
+icon-theme='Papirus'
+
+[org.gnome.desktop.wm.preferences]
+button-layout=':'

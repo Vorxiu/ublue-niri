@@ -160,10 +160,9 @@ modules:
           - com.github.tchx84.Flatseal
           - io.github.kolunmi.Bazaar 
         
-  - type: script
-    snippets:
-      - "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-      - "gsettings set org.gnome.desktop.wm.preferences button-layout :"
+  # - type: script
+  #   snippets:
+  #     - "gsettings set org.gnome.desktop.wm.preferences button-layout :"
 
   - type: yafti
     custom-flatpaks:
