@@ -42,7 +42,7 @@ modules:
       packages:
         - hyprlock
         - android-tools
-        - desktop-backgrounds-compat
+        - desktop-backgrounds-compat # Wallpapers
         - desktop-backgrounds-basic
         - btop
         - bat
@@ -92,7 +92,7 @@ modules:
         - stow
         - swaybg
         - swayidle
-        - swaylock # will remove
+        #- swaylock e
         - swayosd
         - tailscale
         - tealdeer
