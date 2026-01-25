@@ -73,7 +73,7 @@ modules:
         - nwg-wrapper
         - neovim
         - pavucontrol
-        - playerctl
+        - playerctlf
         - polkit
         - lxqt-policykit
         - powertop
@@ -81,6 +81,8 @@ modules:
         - python3-pip
         - qt6ct
         - qt6-qtwayland
+        - qt6-qtsvg
+        - qt6-qtmultimedia
         - rclone
         - ripgrep
         - rofi
