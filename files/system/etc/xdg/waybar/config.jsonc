@@ -1,14 +1,17 @@
 // -*- mode: jsonc -*-
+// maybe a vertical bar for niri?
 {
-    // "layer": "top", // Waybar at top layer
+    "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
+
     // Choose the order of the modules
     "modules-left": [
         "niri/workspaces",
-        "custom/media"
+        "custom/media",
+        "privacy-indicator"
     ],
     "modules-center": [
         "niri/window"
@@ -24,12 +27,11 @@
         "temperature",
         "backlight",
         "keyboard-state",
-        "sway/language",
+        "niri/language",
         "battery",
-        "battery#bat2",
         "clock",
         "tray",
-        "custom/power"
+        // "custom/power"
     ],
 
     "keyboard-state": {
