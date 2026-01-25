@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# get the name of the active graphical session
+export WUSER=$(loginctl show-session "$(loginctl show-seat seat0 -p ActiveSession --value)" -p Name --value )
+echo "WUSER=$WUSER"

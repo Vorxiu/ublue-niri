@@ -1,0 +1,48 @@
+# -*- mode: conf-udev -*-
+# Taken from https://github.com/Ventto/batify
+# modified to play system sounds and work  on wayland
+
+
+ACTION=="change", KERNEL=="BAT[0-9]", \
+SUBSYSTEM=="power_supply", \
+ATTR{status}=="Discharging", \
+ATTR{capacity}=="[0-9]", \
+IMPORT{program}="/usr/bin/wpub", \
+RUN+="/bin/su $env{WUSER} -c 'notify-send -u critical -i battery-empty \"Battery status\" \"Battery level is CRITICAL at $attr{capacity}%\"'"
+
+ACTION=="change", KERNEL=="BAT[0-9]", \
+SUBSYSTEM=="power_supply", \
+ATTR{status}=="Discharging", \
+ATTR{capacity}=="1[0-9]", \
+IMPORT{program}="/usr/bin/wpub", \
+RUN+="/bin/su $env{WUSER} -c 'notify-send -u normal -i battery-caution \"Battery status\" \"Battery is getting low at $attr{capacity}%\"'"
+
+SUBSYSTEM=="power_supply", ACTION=="change", \
+ENV{POWER_SUPPLY_ONLINE}=="0", ENV{POWER}="off", \
+OPTIONS+="last_rule", \
+IMPORT{program}="/usr/bin/wpub", \
+RUN+="/bin/su $env{WUSER} -c 'notify-send -u low -i battery-missing \"Battery status\" \"Charging cable has been unplugged.\"'", \
+RUN+="/bin/su $env{WUSER} -c 'paplay /usr/share/sounds/freedesktop/stereo/power-unplug.oga'"
+
+SUBSYSTEM=="power_supply", ACTION=="change", \
+ENV{POWER_SUPPLY_ONLINE}=="1", ENV{POWER}="on", \
+OPTIONS+="last_rule", \
+IMPORT{program}="/usr/bin/wpub", \
+RUN+="/bin/su $env{WUSER} -c 'notify-send -u low -i battery-full-charging \"Battery status\" \"Charging cable is now plugged.\"'", \
+RUN+="/bin/su $env{WUSER} -c 'paplay /usr/share/sounds/freedesktop/stereo/power-plug.oga'"
+
+# USB storage device hotplug notifications
+
+# Hotplug insertion event
+ACTION=="add",    KERNEL=="sd??", \
+SUBSYSTEM=="block", SUBSYSTEMS=="usb",\
+IMPORT{program}="/usr/bin/wpub", \
+RUN+="/bin/su $env{WUSER} -c 'notify-send -u low -i drive-removable-media-usb \"USB Device\" \"A USB storage device has been connected.\"'", \
+RUN+="/bin/su $env{WUSER} -c 'paplay /usr/share/sounds/freedesktop/stereo/device-added.oga'"
+
+# Hotplug removal event
+ACTION=="remove", KERNEL=="sd??",\
+SUBSYSTEM=="block", SUBSYSTEMS=="usb",\
+IMPORT{program}="/usr/bin/wpub",\
+RUN+="/bin/su $env{WUSER} -c 'notify-send -u low -i drive-removable-media-usb \"USB Device\" \"A USB storage device has been disconnected.\"'", \
+RUN+="/bin/su $env{WUSER} -c 'paplay /usr/share/sounds/freedesktop/stereo/device-removed.oga'"
