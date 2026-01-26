@@ -1,0 +1,55 @@
+#!/bin/sh
+
+mode="$1"
+if [ "$mode" = "mic" ]; then
+    volume=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)
+    volume_percent=$(echo "$volume" | awk '{print $2}')
+    volume_percent=$(echo "( $volume_percent * 100 ) / 1" | bc)
+    icon=""
+
+    if echo "$volume" | grep -q 'MUTED'; then
+        icon="󰍭"
+    elif [ "$volume_percent" -eq 0 ]; then
+        icon=""
+    elif [ "$volume_percent" -le 30 ]; then
+        icon=""
+    fi
+
+    notify-send -t 1000 -a 'wp-vol' -h int:value:$volume_percent "${icon}  ${volume_percent}% "
+
+elif [ "$mode" = "backlight" ]; then
+    # brightness notification
+    brightness=$(brightnessctl get)
+    max_brightness=$(brightnessctl max)
+    brightness_percent=$(( brightness * 100 / max_brightness ))
+    icon="󰃠"
+
+    if [ $brightness_percent -le 20 ]; then
+        icon="󰃞"
+    elif [ $brightness_percent -le 60 ]; then
+        icon="󰃟"
+    fi
+    notify-send -t 1000 -a 'wp-brightness' -h int:value:$brightness_percent "${icon}  ${brightness_percent}%"
+
+elif [ "$mode" = "vol" ]; then
+    # Get the volume level and convert it to a percentage
+    volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+    volume_percent=$(echo "$volume" | awk '{print $2}')
+    volume_percent=$(echo "( $volume_percent * 100 ) / 1" | bc)
+    icon=""
+
+    # Check if the audio is muted
+    if echo "$volume" | grep -q 'MUTED'; then
+        icon=""
+    elif [ "$volume_percent" -eq 0 ]; then
+        icon=""
+    elif [ "$volume_percent" -le 30 ]; then
+        icon=""
+    fi
+
+    notify-send -t 1000 -a 'wp-vol' -h int:value:$volume_percent "${icon}  ${volume_percent}% "
+else
+    echo "Uses notify-send to show OSD for volume, mic mute, and backlight changes."
+    echo "Usage: {mic|vol|backlight}"
+    exit 1
+fi
