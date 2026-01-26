@@ -15,29 +15,41 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      packages: write
-      id-token: write
-    strategy:
-      fail-fast: false
-      matrix:
-        recipe:
-          - recipe.yml
+      packages: read
+
+    # strategy:
+    #   fail-fast: false
+
+      # matrix:
+      #   recipe:
+      #     - recipe.yml
 
     steps:
       # - name: Maximize build space
       #   uses: ublue-os/remove-unwanted-software@v7
 
-      - name: Checkout repository
-        uses: actions/checkout@v6
+      # - name: Checkout repository
+      #   uses: actions/checkout@v6
 
-      - name: Install bluebuild cli
-        uses: baptiste0928/cargo-install@v3
+      # - name: Install bluebuild cli
+      #   uses: baptiste0928/cargo-install@v3
+      #   with:
+      #     crate: blue-build
+
+      # - name: Generate ISO
+      #   run: |
+      #     sudo -E /home/runner/.cargo-install/blue-build/bin/bluebuild -v generate-iso --iso-name ${{ github.event.repository.name }}-latest.iso image ghcr.io/vorxiu/ublue-niri:latest
+      - name: Build ISO
+        id: build
+        uses: jasonn3/build-container-installer@main
         with:
-          crate: blue-build
-
-      - name: Generate ISO
-        run: |
-          sudo -E /home/runner/.cargo-install/blue-build/bin/bluebuild -v generate-iso --iso-name ${{ github.event.repository.name }}-latest.iso image ghcr.io/vorxiu/ublue-niri:latest
+          image_name: ublue-niri
+          image_repo: ghcr.io/vorxiu
+          image_tag: latest
+          version: 43
+          variant: sericea
+          iso_name: ${{ github.event.repository.name }}-latest.iso
+    
 
       - name: Upload ISO as artifact
         uses: actions/upload-artifact@v6
@@ -55,22 +67,22 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.run_number }}
-          name: ISO Build ${{ github.run_number }}
-          files: |
-            ./*.iso
-            ./*-CHECKSUM
-          draft: false
-          prerelease: false
+      # - name: Create Release
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     tag_name: ${{ github.run_number }}
+      #     name: ISO Build ${{ github.run_number }}
+      #     files: |
+      #       ./*.iso
+      #       ./*-CHECKSUM
+      #     draft: false
+      #     prerelease: false
 
-      - name: Upload ISO to Google Drive
-        uses: adityak74/google-drive-upload-git-action@main
-        with:
-          credentials: ${{ secrets.CREDENTIALS }}
-          filename: ./*.iso
-          folderId: ${{ secrets.FOLDER_ID }}
-          name: ${{ github.event.repository.name }}-latest.iso
-          overwrite: "true"
+      # - name: Upload ISO to Google Drive
+      #   uses: adityak74/google-drive-upload-git-action@main
+      #   with:
+      #     credentials: ${{ secrets.CREDENTIALS }}
+      #     filename: ./*.iso
+      #     folderId: ${{ secrets.FOLDER_ID }}
+      #     name: ${{ github.event.repository.name }}-latest.iso
+      #     overwrite: "true"
