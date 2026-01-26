@@ -111,6 +111,8 @@ input {
 }
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORMTHEME=qt6ct
+    QT_QPA_PLATFORM "wayland"
 }
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -144,7 +146,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    // default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
