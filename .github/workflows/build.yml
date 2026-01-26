@@ -41,7 +41,7 @@ jobs:
           pr_event_number: ${{ github.event.number }}
           
           # enabled by default, disable if your image is small and you want faster builds
-          use_cache: true
-          squash: true
-          maximize_build_space: false
-          build_chunked_oci: false
+          # use_cache: false
+          # squash: false
+          # maximize_build_space: true
+          # build_chunked_oci: true
