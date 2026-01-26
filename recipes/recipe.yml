@@ -40,7 +40,7 @@ modules:
       exclude:
         - alacritty
       packages:
-        - hyprlock
+        - adwaita-sans-fonts
         - android-tools
         - brightnessctl
         # - desktop-backgrounds-compat # Wallpapers
@@ -59,7 +59,7 @@ modules:
         - gcc
         - git
         - gnome-keyring
-        # - gnome-disk-utility
+        - gnome-disk-utility
         - grim
         - gvfs
         - gvfs-mtp
@@ -67,6 +67,7 @@ modules:
         - gvfs-archive
         - gvfs-nfs
         - gvfs-smb
+        - hyprlock
        # - kde-connect # nice to have
         - kitty
         - mako
