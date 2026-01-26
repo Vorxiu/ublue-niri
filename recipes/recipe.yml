@@ -100,7 +100,7 @@ modules:
         - stow
         - swaybg
         - swayidle
-        #- swaylock e
+        #- swaylock 
         - swayosd
         - tailscale
         - tealdeer
@@ -152,11 +152,7 @@ modules:
   - type: default-flatpaks
     configurations:
       - notify: true 
-        scope: system
-        # If no repo information is specified, Flathub will be used by default
-        #install: # system flatpaks we want all users to have and not remove
-
-      - scope: user # Also add Flathub user repo, but no user packages
+      - scope: user 
         install:
           - com.github.tchx84.Flatseal
           - io.github.kolunmi.Bazaar 
