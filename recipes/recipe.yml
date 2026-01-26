@@ -120,14 +120,12 @@ modules:
 
     remove:
       packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)List of custom Flatpaks to inject to the default yafti.yml. Format is: PrettyName: org.example.flatpak_id
+        - firefox-langpacks 
         - breeze-icon-theme
+        - nvtop
       
   - type: systemd
-  # this example disables automatic flatpak updates and enables a custom service unit for all users
     system:
       enabled:
         - swayosd-libinput-backend.service
@@ -150,7 +148,7 @@ modules:
 
   - type: default-flatpaks
     configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
+      - notify: true 
         scope: system
         # If no repo information is specified, Flathub will be used by default
         #install: # system flatpaks we want all users to have and not remove
@@ -173,4 +171,4 @@ modules:
       - pavucontrol: org.pulseaudio.pavucontrol  
       
 
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing 
