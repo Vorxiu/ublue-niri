@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# WIP import environment variable for the active graphical user
+
 # get the name of the active graphical session
-export WUSER=$(loginctl show-session "$(loginctl show-seat seat0 -p ActiveSession --value)" -p Name --value )
+WUSER=$(loginctl show-session "$(loginctl show-seat seat0 -p ActiveSession --value)" -p Name --value )
 echo "WUSER=$WUSER"
+# get the home by /home/{WUSER}
+WUSER_HOME="/home/$WUSER"
+echo "WUSER_HOME=$WUSER_HOME"
+
+# XDG_RUNTIME_DIR for the active graphical user
+WUSER_XDG_RUNTIME_DIR="/run/user/$(id -u $WUSER)"
+echo "WUSER_XDG_RUNTIME_DIR=$WUSER_XDG_RUNTIME_DIR"
