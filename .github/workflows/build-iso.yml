@@ -47,7 +47,7 @@ jobs:
           image_repo: ghcr.io/vorxiu
           image_tag: latest
           version: 43
-          variant: sericea
+          variant: silverblue
           iso_name: ${{ github.event.repository.name }}-latest.iso
           web_ui: true
     
