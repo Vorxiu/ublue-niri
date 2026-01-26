@@ -12,6 +12,7 @@ default-timeout=5000
 ignore-timeout=1
 font=monospace 14
 progress-color=over #7d28a8
+icon-paths=/usr/share/icons/Papirus
 
 [urgency=low]
 border-color=#cccccc
