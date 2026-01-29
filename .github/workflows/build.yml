@@ -40,7 +40,7 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           #rechunk: true
-          #rechunk_clear_plan: true
+          rechunk_clear_plan: true
           
           build_chunked_oci: true
           max_layers: 200
@@ -48,4 +48,3 @@ jobs:
           # use_cache: false
           # squash: false
           maximize_build_space: true
-          # build_chunked_oci: true
