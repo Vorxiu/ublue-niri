@@ -106,3 +106,5 @@ eval "$(zoxide init zsh)"
 
 require "zoxide" "brew install zoxide" "brew"
 require "fzf" "brew install fzf" "brew"
+require "tealdeer" "brew install tealdeer" "brew"
+require "bat" "brew install bat" "brew"

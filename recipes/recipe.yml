@@ -17,10 +17,6 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
  
-  - type: bling
-    install:
-      - rpmfusion # install RPMFusion repos, including tainted repos & disable negativo17 repos if installed
- 
   - type: brew
     nofile-limits: true # increase nofile limits
     brew-analytics: false # disable telemetry
@@ -34,7 +30,6 @@ modules:
        # - lihaohong/yazi
       nonfree: rpmfusion
 
-
     install:
       skip-unavailable: true
       allow-erasing: true
@@ -44,16 +39,18 @@ modules:
         - adwaita-sans-fonts
         - android-tools
         - brightnessctl
+        - code
         # - desktop-backgrounds-compat # Wallpapers
         - desktop-backgrounds-basic
         - btop
+        - bazaar # present in ublue copr
         - curl
         - distrobox
         - fd-find
         - firewall-config
         - fuse-overlayfs # appimage support
         - fuzzel
-        - fastfetchW
+        - fastfetch
         - git
         - gnome-keyring
         # - gnome-disk-utility
@@ -61,12 +58,13 @@ modules:
         - gvfs
         - gvfs-mtp
         - gvfs-fuse
-        - gvfs-archive
+        - gvfs-archivevar/lib/pacman/db.lck
         - gvfs-nfs
         - gvfs-smb
         - hyprlock
        # - kde-connect # nice to have
-        # - kitty
+        - kitty
+        - lightdm
         - foot
         - mako
         - man-db
@@ -74,6 +72,10 @@ modules:
         # - network-manager-applet
         - niri
         # - nwg-wrapper
+        - papirus-icon-theme
+        #- python3-pip
+        - qt6ct
+        - qt6-qtwayland
        # - neovim
         - pavucontrol
         - playerctl
@@ -81,24 +83,26 @@ modules:
         - lxqt-policykit
         - powertop
         - ptyxis
-       # - papirus-icon-theme
+        - papirus-icon-theme
         #- python3-pip
-        # - qt6ct
-        # - qt6-qtwayland
-        # - rclone
+        - qt6ct
+        - qt6-qtwayland
         - ripgrep
         - rofi
         - rofimoji
-        - rustup
-        - sddm
+        # - rustup
+        # - sddm
         - slurp
-        #- sshfs
+        - slick-greeter
+        - sshfs
+        - ssh
         - stow
         - swaybg
         - swayidle
-        #- swaylock
+        #- swaylockd
+        - tealdeer
         - toolbox
-        # - tuned-ppd
+        - tuned-ppd
         - upower
         - uupd
         - waybar
@@ -122,7 +126,7 @@ modules:
     system:
       enabled:
         - podman.socket
-        - sddm.service
+        - lightdm.service
     user:
       enabled:
         - waybar.service
@@ -135,31 +139,14 @@ modules:
   - type: fonts
     fonts:
       nerd-fonts:
-        # - JetBrainsMono
-        - NerdFontsSymbolsOnly
+        - JetBrainsMono
+
   - type: gschema-overrides
     include:
       - zz-ublue-niri.gschema.override
-
-  - type: default-flatpaks
-    configurations:
-      - notify: true 
-      - scope: user 
-        install:
-          - com.github.tchx84.Flatseal
-          - io.github.kolunmi.Bazaar 
-          - io.github.dvlv.boxbuddyrs
-        
-  # - type: script
-  #   snippets:
-  #     - "brew install yazi"
-
-  - type: yafti
-    custom-flatpaks:
-      - Zen-Browser: app.zen_browser.zen
-      - clipboard-manager: com.github.hluk.copyq
-      - tauon-music-player: com.github.taiko2k.tauon-music-player
-      - pavucontrol: org.pulseaudio.pavucontrol
-      
+    
+  - type: script
+    scripts:
+      - post_build.sh 
 
   - type: signing 

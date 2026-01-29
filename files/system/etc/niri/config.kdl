@@ -107,7 +107,7 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=1280 y=0ri
 }
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
@@ -375,7 +375,7 @@ overview {
 spawn-at-startup "swayosd-server"
 spawn-at-startup "copyq"
 spawn-at-startup "systemctl --user start swaybg.service"
-
+// spawn-at-startup "kitten panel --single-instance --margin-top=700 --edge=background --layer=overlay -o background_opacity=0  cava"
 
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:

@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -40,6 +41,7 @@ zinit snippet OMZP::command-not-found
 # Load completions
 autoload -Uz compinit && compinit
 autoload -Uz zmv
+
 
 zinit cdreplay -q
 
@@ -104,3 +106,6 @@ eval "$(zoxide init zsh)"
 
 require "zoxide" "brew install zoxide" "brew"
 require "fzf" "brew install fzf" "brew"
+require "tealdeer" "brew install tealdeer" "brew"
+require "bat" "brew install bat" "brew"
+require "nvim" "brew install neovim" "brew"
