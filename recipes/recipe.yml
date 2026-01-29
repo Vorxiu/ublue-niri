@@ -53,11 +53,10 @@ modules:
         - firewall-config
         - fuse-overlayfs # appimage support
         - fuzzel
-        - fastfetch
-       # - gcc
+        - fastfetchW
         - git
         - gnome-keyring
-        - gnome-disk-utility
+        # - gnome-disk-utility
         - grim
         - gvfs
         - gvfs-mtp
@@ -67,25 +66,26 @@ modules:
         - gvfs-smb
         - hyprlock
        # - kde-connect # nice to have
-        - kitty
+        # - kitty
+        - foot
         - mako
         - man-db
         - nautilus
-        - network-manager-applet
+        # - network-manager-applet
         - niri
-        - nwg-wrapper
+        # - nwg-wrapper
        # - neovim
         - pavucontrol
-        - playerctlf
+        - playerctl
         - polkit
         - lxqt-policykit
         - powertop
         - ptyxis
        # - papirus-icon-theme
         #- python3-pip
-        - qt6ct
-        - qt6-qtwayland
-        - rclone
+        # - qt6ct
+        # - qt6-qtwayland
+        # - rclone
         - ripgrep
         - rofi
         - rofimoji
@@ -98,7 +98,7 @@ modules:
         - swayidle
         #- swaylock
         - toolbox
-        - tuned-ppd
+        # - tuned-ppd
         - upower
         - uupd
         - waybar
@@ -116,6 +116,7 @@ modules:
         - firefox-langpacks 
         - breeze-icon-theme
         - nvtop
+        - google-noto-sans-cjk-fonts
       
   - type: systemd
     system:
@@ -134,7 +135,7 @@ modules:
   - type: fonts
     fonts:
       nerd-fonts:
-        - JetBrainsMono
+        # - JetBrainsMono
         - NerdFontsSymbolsOnly
   - type: gschema-overrides
     include:
