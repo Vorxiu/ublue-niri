@@ -1,8 +1,23 @@
 # ublue-niri &nbsp; [![bluebuild build badge](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml/badge.svg)](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml)
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+A base niri image with some sane minimal configs 
+  
+## Features
 
-After setup, it is recommended you update this README to describe your custom image.
+- Minimal configs for most tools
+- ntsync enabled
+- Systemd services for swayidle,swaybg,keyring,polkit
+- [udev rules](https://github.com/Vorxiu/ublue-niri/blob/main/files/system/etc/udev/rules.d/99-batify-wayland.rules) for low battery notifications and some system sounds(battery,devices)
+- [osd](https://github.com/Vorxiu/ublue-niri/blob/main/files/system/usr/bin/mako-osd) using libnotify
+- lightdm with slick greeter
+- hyprlock
+- docker and distrobox
+- JetBrainsMonoNerd Font
+- zsh configured with p10k some plugins
+
+Full package list [here](https://github.com/Vorxiu/ublue-niri/blob/main/recipes/recipe.yml)
+
+## Installation
 
 ## Installation
 
@@ -44,14 +59,10 @@ cosign verify --key cosign.pub ghcr.io/vorxiu/ublue-niri
 
 ## TODO
 
-- [ ] chezmoi for the dot files
 - [x] udev rules for system sounds (plug/unplug)
 - [x] pleasant sddm theme using (where is my sddm theme)
 - [x] nicer lockscreen (hyprlock?)
 - [x] papirus-icon-theme and add gschema overrides in the config
 - [x] ntsync
-- [x] sddm theme
-- [ ] nautilus extensions
-- [ ] bake some vscode extensions into the iso
-- [ ] annanicy and annicy cpp rules (unsure)
-- [ ] cachyOS kernel?
+- [x] ~~ sddm theme ~~ lightDM
+- [X] bake some vscode extensions into the iso
