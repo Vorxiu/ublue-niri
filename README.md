@@ -65,6 +65,7 @@ cosign verify --key cosign.pub ghcr.io/vorxiu/ublue-niri
 - [x] ntsync
 - [x] ~~ sddm theme ~~ lightDM
 - [X] bake some vscode extensions into the iso
+- [] bbrew?
 - [] Fix: Swaybg not automatically starting via systemD
 - [] hyprlock not reading the config from /etc/hypr/hyprlock
 - [] ISO for easy installation
