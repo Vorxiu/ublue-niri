@@ -2,7 +2,7 @@
 set -eoux pipefail
 
 # Remove packages to save space
-dnf remove -y google-noto-fonts-all ublue-brew || true
+# dnf remove -y google-noto-fonts-all ublue-brew || true
 
 
 # Disable services not needed in live environment
