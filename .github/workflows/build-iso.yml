@@ -58,6 +58,7 @@ jobs:
           name: ${{ github.event.repository.name }}-latest-iso
           path: ./*.iso
           if-no-files-found: error
+          compression-level: 10
           retention-days: 30
 
       - name: Upload checksum as artifact
@@ -67,12 +68,3 @@ jobs:
           path: ./*-CHECKSUM
           if-no-files-found: error
           retention-days: 30
-
-      # - name: Upload ISO to Google Drive
-      #   uses: adityak74/google-drive-upload-git-action@main
-      #   with:
-      #     credentials: ${{ secrets.CREDENTIALS }}
-      #     filename: ./*.iso
-      #     folderId: ${{ secrets.FOLDER_ID }}
-      #     name: ${{ github.event.repository.name }}-latest.iso
-      #     overwrite: "true"
