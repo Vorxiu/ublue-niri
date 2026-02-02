@@ -66,10 +66,9 @@ modules:
         - gvfs-nfs
         - gvfs-smb
         - hyprlock
-       # - kde-connect # nice to have
+        - kde-connect # nice to have
         - kitty
         - lightdm
-        - foot
         - mako
         - man-db
         - nautilus
@@ -78,8 +77,6 @@ modules:
         # - nwg-wrapper
         - papirus-icon-theme
         #- python3-pip
-        - qt6ct
-        - qt6-qtwayland
        # - neovim
         - pavucontrol
         - playerctl
@@ -98,7 +95,8 @@ modules:
         # - sddm
         - slurp
         # - slick-greeter
-        - lightdm-gtk
+        - sddm
+        - sddm-breeze
         - sshfs
         - ssh
         - stow
@@ -131,7 +129,8 @@ modules:
     system:
       enabled:
         - podman.socket
-        - lightdm.service
+        # - lightdm.service
+        - sddm.service
         - docker.socket
     user:
       enabled:
