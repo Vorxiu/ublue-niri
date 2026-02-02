@@ -72,7 +72,8 @@ modules:
         - mako
         - man-db
         - nautilus
-        # - network-manager-applet
+        - network-manager-applet
+        - blueman
         - niri
         # - nwg-wrapper
         - papirus-icon-theme
