@@ -1,11 +1,10 @@
 [Unit]
 Description=Swaybg wallpaper daemon
-PartOf=niri-session.target
-After=niri-session.target
-Requisite=niri-session.target
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
 
 [Service]
-
 ExecStart=/usr/bin/swaybg -m fill -i /usr/share/backgrounds/default.jxl
 Restart=on-failure
 RestartSec=10
