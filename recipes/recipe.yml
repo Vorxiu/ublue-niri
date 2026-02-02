@@ -62,7 +62,7 @@ modules:
         - gvfs
         - gvfs-mtp
         - gvfs-fuse
-        - gvfs-archivevar/lib/pacman/db.lck
+        - gvfs-archive
         - gvfs-nfs
         - gvfs-smb
         - hyprlock
@@ -97,7 +97,8 @@ modules:
         # - rustup
         # - sddm
         - slurp
-        - slick-greeter
+        # - slick-greeter
+        - lightdm-gtk
         - sshfs
         - ssh
         - stow
@@ -130,7 +131,7 @@ modules:
     system:
       enabled:
         - podman.socket
-        - lightdm.service
+        - lightdm-gtk.service
         - docker.socket
     user:
       enabled:
