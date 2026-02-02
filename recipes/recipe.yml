@@ -131,7 +131,7 @@ modules:
     system:
       enabled:
         - podman.socket
-        - lightdm-gtk.service
+        - lightdm.service
         - docker.socket
     user:
       enabled:
