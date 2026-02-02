@@ -46,8 +46,8 @@ modules:
         - bazaar # present in ublue copr
         - curl
         - distrobox
-        - docker-ce
-        - docker-ce-cli
+        # - docker-ce
+        # - docker-ce-cli
         - containerd.io
         - podman
         - fd-find
@@ -131,7 +131,7 @@ modules:
         - podman.socket
         # - lightdm.service
         - sddm.service
-        - docker.socket
+        # - docker.socket
     user:
       enabled:
         - waybar.service
