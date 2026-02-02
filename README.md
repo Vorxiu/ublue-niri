@@ -9,7 +9,7 @@ A base niri image with some sane minimal configs.
 - Systemd services for swayidle,swaybg,keyring,polkit
 - [udev rules](https://github.com/Vorxiu/ublue-niri/blob/main/files/system/etc/udev/rules.d/99-batify-wayland.rules) for low battery notifications and some system sounds(battery,devices)
 - [osd](https://github.com/Vorxiu/ublue-niri/blob/main/files/system/usr/bin/mako-osd) using libnotify
-- lightdm with slick greeter
+- sddm with breeze theme
 - hyprlock
 - docker and distrobox
 - JetBrainsMonoNerd Font
@@ -63,7 +63,7 @@ cosign verify --key cosign.pub ghcr.io/vorxiu/ublue-niri
 - [x] nicer lockscreen (hyprlock?)
 - [x] papirus-icon-theme and add gschema overrides in the config
 - [x] ntsync
-- [x] ~~ sddm theme ~~ lightDM
+- [x] sddm with breeze
 - [X] bake some vscode extensions into the iso
 - [] bbrew?
 - [] Fix: Swaybg not automatically starting via systemD

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 set -oue pipefail
+# create /nix partition
+mkdir -p /nix
 
 # some code extensions
 ext install ms-vscode-remote.remote-containers
