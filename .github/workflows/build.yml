@@ -45,4 +45,4 @@ jobs:
           # enabled by default, disable if your image is small and you want faster builds
           # use_cache: false
           # squash: true
-           maximize_build_space: false
+          maximize_build_space: false
