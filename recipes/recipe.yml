@@ -50,7 +50,6 @@ modules:
         # - docker-ce
         # - docker-ce-cli
         - containerd.io
-        - gcc
         - podman
         - fd-find
         - firewall-config
