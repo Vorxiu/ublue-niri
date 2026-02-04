@@ -49,6 +49,7 @@ modules:
         # - docker-ce
         # - docker-ce-cli
         - containerd.io
+        - gcc
         - podman
         - fd-find
         - firewall-config
@@ -71,6 +72,7 @@ modules:
 #        - lightdm
         - mako
         - man-db
+        - neovim
         - nautilus
         - network-manager-applet
         - blueman
@@ -92,8 +94,7 @@ modules:
         - ripgrep
         - rofi
         - rofimoji
-        # - rustup
-        # - sddm
+         - rustup
         - slurp
         # - slick-greeter
         - sddm
@@ -118,6 +119,7 @@ modules:
         - zoxide
         - zsh
         - wlsunset
+        - zstd
     remove:
       packages:
         - firefox
