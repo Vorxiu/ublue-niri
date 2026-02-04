@@ -17,9 +17,9 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
  
-  - type: brew
-    nofile-limits: true # increase nofile limits
-    brew-analytics: false # disable telemetry
+#  - type: brew
+#    nofile-limits: true # increase nofile limits
+#    brew-analytics: false # disable telemetry
   
   - type: dnf
     repos:
@@ -68,7 +68,7 @@ modules:
         - hyprlock
         - kde-connect # nice to have
         - kitty
-        - lightdm
+#        - lightdm
         - mako
         - man-db
         - nautilus
@@ -97,7 +97,7 @@ modules:
         - slurp
         # - slick-greeter
         - sddm
-        - sddm-breeze
+#        - sddm-breeze
         - sshfs
         - ssh
         - stow
@@ -117,7 +117,7 @@ modules:
         - xwayland-satellite
         - zoxide
         - zsh
-
+        - wlsunset
     remove:
       packages:
         - firefox
