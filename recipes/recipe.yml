@@ -16,19 +16,19 @@ modules:
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
- 
+
   - type: brew
     nofile-limits: true # increase nofile limits
     brew-analytics: false # disable telemetry
     direct-pull: true
-  
+
   - type: dnf
     repos:
       cleanup: true
       copr:
         - ublue-os/packages
         - solopasha/hyprland
-       # - lihaohong/yazi
+        # - lihaohong/yazi
       nonfree: rpmfusion
 
     install:
@@ -69,7 +69,7 @@ modules:
         - hyprlock
         - kde-connect # nice to have
         - kitty
-#        - lightdm
+        #        - lightdm
         - mako
         - man-db
         - neovim
@@ -80,7 +80,7 @@ modules:
         # - nwg-wrapper
         - papirus-icon-theme
         #- python3-pip
-       # - neovim
+        # - neovim
         - pavucontrol
         - playerctl
         - polkit
@@ -94,17 +94,17 @@ modules:
         - ripgrep
         - rofi
         - rofimoji
-         - rustup
+        - rustup
         - slurp
         # - slick-greeter
         - sddm
-#        - sddm-breeze
+        # - sddm-breeze
         - sshfs
         - ssh
         - stow
         - swaybg
         - swayidle
-        #- swaylockd
+        #- swaylock
         - tealdeer
         - toolbox
         - tuned-ppd
@@ -123,17 +123,17 @@ modules:
     remove:
       packages:
         - firefox
-        - firefox-langpacks 
+        - firefox-langpacks
         - breeze-icon-theme
         - nvtop
-        - google-noto-sans-cjk-fonts
-      
+
   - type: systemd
     system:
       enabled:
         - podman.socket
         # - lightdm.service
         - sddm.service
+        - uupd.timer
         # - docker.socket
     user:
       enabled:
@@ -152,9 +152,9 @@ modules:
   - type: gschema-overrides
     include:
       - zz-ublue-niri.gschema.override
-    
+
   # - type: script
   #   scripts:
-  #     - post_build.sh 
+  #     - post_build.sh
 
-  - type: signing 
+  - type: signing
