@@ -40,9 +40,9 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           rechunk_clear_plan: true          
-          build_chunked_oci: true
+          build_chunked_oci: false
           # max_layers: 200
           # enabled by default, disable if your image is small and you want faster builds
           use_cache: true
           # squash: true
-          maximize_build_space: true
+          maximize_build_space: false
