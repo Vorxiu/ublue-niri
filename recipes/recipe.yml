@@ -40,7 +40,7 @@ modules:
         - adwaita-sans-fonts
         - android-tools
         - brightnessctl
-        - code
+      #  - code
         # - desktop-backgrounds-compat # Wallpapers
         - desktop-backgrounds-basic
         - btop
