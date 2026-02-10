@@ -21,7 +21,33 @@ modules:
     nofile-limits: true # increase nofile limits
     brew-analytics: false # disable telemetry
     direct-pull: true
+    
+  - type: systemd
+    system:
+      enabled:
+        - podman.socket
+        # - lightdm.service
+        - sddm.service
+        - uupd.timer
+        # - docker.socket
+    user:
+      enabled:
+        - waybar.service
+        - gnome-keyring-daemon.socket
+        - swaybg.service
+        - swayidle.service
+        - mako.service
+        - lxqt-policykit.service
 
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - JetBrainsMono
+
+  - type: gschema-overrides
+    include:
+      - zz-ublue-niri.gschema.override
+    
   - type: dnf
     repos:
       cleanup: true
@@ -127,31 +153,7 @@ modules:
         - breeze-icon-theme
         - nvtop
 
-  - type: systemd
-    system:
-      enabled:
-        - podman.socket
-        # - lightdm.service
-        - sddm.service
-        - uupd.timer
-        # - docker.socket
-    user:
-      enabled:
-        - waybar.service
-        - gnome-keyring-daemon.socket
-        - swaybg.service
-        - swayidle.service
-        - mako.service
-        - lxqt-policykit.service
 
-  - type: fonts
-    fonts:
-      nerd-fonts:
-        - JetBrainsMono
-
-  - type: gschema-overrides
-    include:
-      - zz-ublue-niri.gschema.override
 
   # - type: script
   #   scripts:
