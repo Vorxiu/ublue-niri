@@ -135,8 +135,11 @@ modules:
         - firefox-langpacks
         - breeze-icon-theme
         - nvtop
-
-
+  - type: pacman
+     install:
+     packages:
+     - polkit-gnome
+     
   - type: systemd
     system:
       enabled:
