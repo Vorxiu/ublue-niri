@@ -44,6 +44,6 @@ jobs:
           rechunk: false
           # max_layers: 200
           # enabled by default, disable if your image is small and you want faster builds
-          use_cache: false
+          use_cache: true
           squash: false
           maximize_build_space: false
