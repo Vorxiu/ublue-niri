@@ -41,8 +41,9 @@ jobs:
           pr_event_number: ${{ github.event.number }}
           rechunk_clear_plan: true          
           build_chunked_oci: false
+          rechunk: false
           # max_layers: 200
           # enabled by default, disable if your image is small and you want faster builds
-          use_cache: true
-          # squash: true
+          use_cache: false
+          squash: false
           maximize_build_space: false
