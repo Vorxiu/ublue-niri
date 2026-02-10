@@ -21,23 +21,6 @@ modules:
     nofile-limits: true # increase nofile limits
     brew-analytics: false # disable telemetry
     direct-pull: true
-    
-  - type: systemd
-    system:
-      enabled:
-        - podman.socket
-        # - lightdm.service
-        - sddm.service
-        - uupd.timer
-        # - docker.socket
-    user:
-      enabled:
-        - waybar.service
-        - gnome-keyring-daemon.socket
-        - swaybg.service
-        - swayidle.service
-        - mako.service
-        - lxqt-policykit.service
 
   - type: fonts
     fonts:
@@ -154,7 +137,22 @@ modules:
         - nvtop
 
 
-
+  - type: systemd
+    system:
+      enabled:
+        - podman.socket
+        # - lightdm.service
+        - sddm.service
+        - uupd.timer
+        # - docker.socket
+    user:
+      enabled:
+        - waybar.service
+        - gnome-keyring-daemon.socket
+        - swaybg.service
+        - swayidle.service
+        - mako.service
+        - lxqt-policykit.service
   # - type: script
   #   scripts:
   #     - post_build.sh
