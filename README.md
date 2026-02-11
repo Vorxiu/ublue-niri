@@ -65,7 +65,16 @@ cosign verify --key cosign.pub ghcr.io/vorxiu/ublue-niri
 - [x] ntsync
 - [x] sddm with breeze
 - [X] bake some vscode extensions into the iso
-- [] bbrew?
-- [] Fix: Swaybg not automatically starting via systemD
-- [] hyprlock not reading the config from /etc/hypr/hyprlock
-- [] ISO for easy installation
+- [ ] bbrew?
+- [ ] Fix: Swaybg not automatically starting via systemD
+- [ ] hyprlock not reading the config from /etc/hypr/hyprlock
+- [ ] ISO for easy installation
+
+### FIX VS CODE FONTS
+
+```bash
+fc-cache -f -v ~/.local/share/fonts ~/.fonts
+rm -rf ~/.cache/fontconfig/*
+fc-cache -f -v
+sudo fc-cache -f -v /usr/share/fonts /usr/local/share/fonts
+```
