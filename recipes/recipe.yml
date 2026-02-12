@@ -131,8 +131,8 @@ modules:
         - zstd
     remove:
       packages:
-        - firefox
-        - firefox-langpacks
+        #- firefox
+        #- firefox-langpacks
         - breeze-icon-theme
         - nvtop
      
