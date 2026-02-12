@@ -50,7 +50,6 @@ modules:
         - android-tools
         - brightnessctl
       #  - code
-        # - desktop-backgrounds-compat # Wallpapers
         - desktop-backgrounds-basic
         - btop
         - bazaar # present in ublue copr
@@ -78,7 +77,7 @@ modules:
         - hyprlock
         - kde-connect # nice to have
         - kitty
-        #        - lightdm
+        #- lightdm
         - mako
         - man-db
         - neovim
@@ -96,6 +95,7 @@ modules:
         - lxqt-policykit
         - powertop
         - ptyxis
+        - python-pip
         - papirus-icon-theme
         #- python3-pip
         - qt6ct
