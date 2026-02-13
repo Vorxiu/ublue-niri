@@ -51,6 +51,7 @@ modules:
         - brightnessctl
       #  - code
         - desktop-backgrounds-basic
+        - flatpak-builder
         - btop
         - bazaar # present in ublue copr
         - curl
