@@ -93,7 +93,6 @@ modules:
         - pavucontrol
         - playerctl
         - polkit
-        - lxqt-policykit
         - powertop
         - ptyxis
         - python-pip
@@ -152,7 +151,8 @@ modules:
         - swaybg.service
         - swayidle.service
         - mako.service
-        - lxqt-policykit.service
+        - wlsunset
+        - plasma-polkit-agent.service
   # - type: script
   #   scripts:
   #     - post_build.sh
