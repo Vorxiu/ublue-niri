@@ -55,6 +55,7 @@ modules:
         - btop
         - bazaar # present in ublue copr
         - curl
+        - copyq
         - distrobox
         # - docker-ce
         # - docker-ce-cli
@@ -67,7 +68,6 @@ modules:
         - fastfetch
         - git
         - gnome-keyring
-        # - gnome-disk-utility
         - grim
         - gvfs
         - gvfs-mtp
@@ -86,9 +86,8 @@ modules:
         - network-manager-applet
         - blueman
         - niri
-        # - nwg-wrapper
+        - nwg-wrapper
         - papirus-icon-theme
-        #- python3-pip
         # - neovim
         - pavucontrol
         - playerctl
@@ -97,7 +96,6 @@ modules:
         - ptyxis
         - python-pip
         - papirus-icon-theme
-        #- python3-pip
         - qt6ct
         - qt6-qtwayland
         - ripgrep
@@ -105,9 +103,7 @@ modules:
         - rofimoji
         - rustup
         - slurp
-        # - slick-greeter
         - sddm
-        # - sddm-breeze
         - sshfs
         - ssh
         - stow
@@ -129,6 +125,7 @@ modules:
         - zsh
         - wlsunset
         - zstd
+
     remove:
       packages:
         - firefox
@@ -152,7 +149,7 @@ modules:
         - swayidle.service
         - mako.service
         - wlsunset
-        - plasma-polkit-agent.service
+        - kde-policykit.service
   # - type: script
   #   scripts:
   #     - post_build.sh

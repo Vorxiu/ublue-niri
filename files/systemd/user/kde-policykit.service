@@ -1,10 +1,10 @@
 [Unit]
-Description=lxqt PolicyKit Authentication Agent
+Description=Kde PolicyKit Authentication Agent
 PartOf=graphical-session.target
 After=graphical-session.target
 	
 [Service]
-ExecStart= /usr/bin/lxqt-policykit-agent
+ExecStart= /usr/lib/polkit-kde-authentication-agent-1
 Slice=background.slice
 TimeoutStopSec=5sec
 Restart=on-failure
