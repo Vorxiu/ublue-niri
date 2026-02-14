@@ -37,7 +37,9 @@ modules:
       copr:
         - ublue-os/packages
         - solopasha/hyprland
-        # - lihaohong/yazi
+        - lihaohong/yazi
+        - bieszczaders/kernel-cachyos-addons
+        # annanicy rules and cachykernel
       nonfree: rpmfusion
 
     install:
@@ -48,13 +50,15 @@ modules:
       packages:
         - adwaita-sans-fonts
         - android-tools
+        - ananicy-cpp
+        - cachyos-ananicy-rules
         - brightnessctl
-      #  - code
         - desktop-backgrounds-basic
         - flatpak-builder
         - btop
-        - bazaar # present in ublue copr
+        - bazaar
         - curl
+        - cava
         - copyq
         - distrobox
         # - docker-ce
@@ -62,6 +66,7 @@ modules:
         - containerd.io
         - podman
         - fd-find
+        - fzf
         - firewall-config
         - fuse-overlayfs # appimage support
         - fuzzel
@@ -88,14 +93,15 @@ modules:
         - niri
         - nwg-wrapper
         - papirus-icon-theme
-        # - neovim
+        - neovim
+        - python3-neovim
         - pavucontrol
         - playerctl
         - polkit
         - powertop
+        - podman-compose
         - ptyxis
         - python-pip
-        - papirus-icon-theme
         - qt6ct
         - qt6-qtwayland
         - ripgrep
@@ -127,11 +133,13 @@ modules:
         - zstd
 
     remove:
+      auto-remove: true
       packages:
         - firefox
         - firefox-langpacks
         - breeze-icon-theme
         - nvtop
+        - htop
      
   - type: systemd
     system:
@@ -139,6 +147,7 @@ modules:
         - podman.socket
         # - lightdm.service
         - sddm.service
+        - ananicy-cpp.service
         - uupd.timer
         # - docker.socket
     user:
@@ -150,6 +159,7 @@ modules:
         - mako.service
         - wlsunset
         - kde-policykit.service
+        
   # - type: script
   #   scripts:
   #     - post_build.sh
