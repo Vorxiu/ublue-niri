@@ -39,11 +39,11 @@ jobs:
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
-          rechunk_clear_plan: false       
-          build_chunked_oci: false
+          rechunk_clear_plan: true    
+          build_chunked_oci: true
           rechunk: false
-          # max_layers: 200
+          max_layers: 300
           # enabled by default, disable if your image is small and you want faster builds
           use_cache: true
           squash: false
-          maximize_build_space: false
+          maximize_build_space: true
