@@ -37,7 +37,6 @@ modules:
       copr:
         - ublue-os/packages
         - solopasha/hyprland
-        - lihaohong/yazi
         - bieszczaders/kernel-cachyos-addons
         # annanicy rules and cachykernel
       nonfree: rpmfusion
