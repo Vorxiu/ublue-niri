@@ -97,6 +97,7 @@ modules:
         - pavucontrol
         - playerctl
         - polkit
+        - polkit-kde
         - powertop
         - podman-compose
         - ptyxis
