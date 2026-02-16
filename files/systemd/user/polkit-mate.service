@@ -1,5 +1,5 @@
 [Unit]
-Description=Kde PolicyKit Authentication Agent
+Description=Mate PolicyKit Authentication Agent
 PartOf=graphical-session.target
 After=graphical-session.target
 	
@@ -8,3 +8,6 @@ ExecStart= /usr/libexec/polkit-mate-authentication-agent-1
 Slice=background.slice
 TimeoutStopSec=5sec
 Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

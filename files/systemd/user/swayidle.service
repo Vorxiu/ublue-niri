@@ -1,4 +1,5 @@
 [Unit]
+Description=Swayidle - a Wayland idle manager
 PartOf=graphical-session.target
 After=graphical-session.target
 Requisite=graphical-session.target
@@ -6,5 +7,7 @@ Requisite=graphical-session.target
 [Service]
 ExecStart=/usr/bin/swayidle -w timeout 580 'niri msg action power-off-monitors' timeout 600 'pidof hyprlock || hyprlock' resume 'niri msg action power-on-monitors' 
 # before-sleep 'pidof hyprlock || hyprlock'
-
 Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
