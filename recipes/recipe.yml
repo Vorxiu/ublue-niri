@@ -30,7 +30,14 @@ modules:
   - type: gschema-overrides
     include:
       - zz-ublue-niri.gschema.override
-    
+
+  - type: script
+    snippets:
+      - "brew tap ublue-os/tap"
+      - "brew install Valkyrie00/homebrew-bbrew/bbrew"
+    scripts:
+      - myscript.sh # example: run files/scripts/myscript.sh
+          
   - type: dnf
     repos:
       cleanup: true
