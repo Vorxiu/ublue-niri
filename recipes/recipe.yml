@@ -99,7 +99,6 @@ modules:
         - niri
         - nwg-wrapper
         - papirus-icon-theme
-        - neovim
         - python3-neovim
         - pavucontrol
         - playerctl
@@ -123,7 +122,7 @@ modules:
         - swaybg
         - swayidle
         #- swaylock
-        - tealdeer
+        - tldr
         - toolbox
         - tuned-ppd
         - upower
