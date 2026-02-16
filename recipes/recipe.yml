@@ -158,6 +158,6 @@ modules:
         - swayidle.service
         - mako.service
         - wlsunset
-        - kde-policykit.service
+        - polkit-mate.service
 
   - type: signing
