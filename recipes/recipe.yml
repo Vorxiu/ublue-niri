@@ -159,9 +159,5 @@ modules:
         - mako.service
         - wlsunset
         - kde-policykit.service
-        
-  # - type: script
-  #   scripts:
-  #     - post_build.sh
 
   - type: signing
