@@ -38,6 +38,8 @@ modules:
         - ublue-os/packages
         - solopasha/hyprland
         - bieszczaders/kernel-cachyos-addons
+        - monkeygold/nautilus-open-any-terminal
+
         # annanicy rules and cachykernel
       nonfree: rpmfusion
 
@@ -87,6 +89,11 @@ modules:
         - man-db
         - neovim
         - nautilus
+        - blueman-nautilus
+        - kde-connect-nautilus
+        - nautilus-python
+        - nautilus-open-any-terminal
+        - sushi
         - network-manager-applet
         - blueman
         - niri
@@ -135,6 +142,7 @@ modules:
     remove:
       auto-remove: true
       packages:
+        - weston
         - firefox
         - firefox-langpacks
         - breeze-icon-theme
