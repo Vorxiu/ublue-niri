@@ -35,8 +35,6 @@ modules:
     snippets:
       - "brew tap ublue-os/tap"
       - "brew install Valkyrie00/homebrew-bbrew/bbrew"
-    scripts:
-      - myscript.sh # example: run files/scripts/myscript.sh
           
   - type: dnf
     repos:
