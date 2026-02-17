@@ -31,10 +31,10 @@ modules:
     include:
       - zz-ublue-niri.gschema.override
 
-  - type: script
-    snippets:
-      - "brew tap ublue-os/tap"
-      - "brew install Valkyrie00/homebrew-bbrew/bbrew"
+  # - type: script
+  #   snippets:
+  #     - "brew tap ublue-os/tap"
+  #     - "brew install Valkyrie00/homebrew-bbrew/bbrew"
           
   - type: dnf
     repos:
