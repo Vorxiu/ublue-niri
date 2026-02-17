@@ -17,4 +17,4 @@ cd ..
 rm -rf rofi-calc
 
 # install bbrew
-brew install Valkyrie00/homebrew-bbrew/bbrew
+# brew install Valkyrie00/homebrew-bbrew/bbrew
