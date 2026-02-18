@@ -488,14 +488,14 @@ binds {
     Mod+Shift+T hotkey-overlay-title="Open a Terminal: ptyxis" { spawn "ptyxis"; }
     Mod+space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi -show drun || pkill rofi"; }
     Mod+D hotkey-overlay-title="Run a Application Launcher: fuzzel" { spawn "fuzzel"; }
-    Mod+semicolon hotkey-overlay-title="Open clipboard manager: copyq" { spawn "copyq toggle"; } // use the flatpak com.github.hluk.copyq
-    Mod+B hotkey-overlay-title="Open web browser" { spawn "xdg-open https://"; }
+    Mod+semicolon hotkey-overlay-title="Open clipboard manager: copyq" { spawn-sh "copyq toggle"; } // use the flatpak com.github.hluk.copyq
+    Mod+B hotkey-overlay-title="Open web browser" { spawn-sh "xdg-open https://"; }
     Mod+E hotkey-overlay-title="Open file manager: nautilus" { spawn "nautilus"; }
     Mod+Shift+C hotkey-overlay-title="Open code editor: code" { spawn "code"; } // may want to change it 
     Mod+P hotkey-overlay-title="Color picker: " { spawn-sh "niri msg pick-color | grep -oP 'Hex: \\K#[0-9a-fA-F]+' | wl-copy"; }
     Mod+Shift+M hotkey-overlay-title="Open spotify" { spawn "flatpak run com.spotify.Client";}
     Mod+N hotkey-overlay-title="Open Neovim" { spawn-sh "kitty nvim"; }
-    Mod+alt+V hotkey-overlay-title="Open volume control: pavucontrol" { spawn "flatpak run org.pulseaudio.pavucontrol"; }
+    Mod+alt+V hotkey-overlay-title="Open volume control: pavucontrol" { spawn "pavucontrol"; }
 
     //hide waybar
     Mod+Shift+W hotkey-overlay-title="Toggle waybar" { spawn-sh "killall -USR1 waybar"; }
@@ -511,7 +511,7 @@ binds {
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
   
     // The allow-when-locked=true property makes them work even when the session is locked.
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0 && notify-osd vol"; }

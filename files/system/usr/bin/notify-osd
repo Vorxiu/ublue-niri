@@ -28,8 +28,7 @@ elif [ "$mode" = "backlight" ]; then
         icon="󰃟"
     fi
 
-elif [ "$mode" = "vol" ]; then
-    # Get the volume level and convert it to a percentage
+elif [ "$mode" = "vol" ]; then    
     volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
     percent=$(echo "$volume" | awk '{print $2}')
     percent=$(echo "( $percent * 100 ) / 1" | bc)
@@ -47,7 +46,7 @@ elif [ "$mode" = "vol" ]; then
 else
     echo "Uses notify-send to show OSD for volume, mic mute, and backlight changes."
     echo "Usage: {mic|vol|backlight}"
-    echo "Ex. mako-osd vol"
+    echo "Ex. notify-osd vol"
     echo ""
     exit 1
 fi

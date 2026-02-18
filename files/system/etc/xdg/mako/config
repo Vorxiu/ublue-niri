@@ -28,7 +28,7 @@ default-timeout=0
 default-timeout=2000
 group-by=category
 
-[app-name=mako-osd]
+[app-name=notify-osd]
 layer=overlay
 history=0
 border-size=0
