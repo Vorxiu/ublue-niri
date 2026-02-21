@@ -106,6 +106,7 @@ modules:
         - nwg-wrapper
         - papirus-icon-theme
         - python3-neovim
+        - python3-gobject
         - pavucontrol
         - playerctl
         - polkit
@@ -127,12 +128,14 @@ modules:
         - stow
         - swaybg
         - swayidle
-        #- swaylock
+        - swaylock-effects
         - tldr
         - toolbox
         - upower
         - uupd
+        - uwsm
         - waybar
+        - waypaper
         - wget
         - wf-recorder
         - xdg-desktop-portal-gnome

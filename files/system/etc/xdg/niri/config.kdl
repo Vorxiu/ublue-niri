@@ -107,7 +107,7 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    // position x=1280 y=0
 }
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
@@ -372,10 +372,9 @@ overview {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "swayosd-server"
 spawn-at-startup "copyq"
-spawn-at-startup "systemctl --user start swaybg.service"
-
+spawn-at-startup "waypaper --restore"
+// spawn-at-startup "kitten panel --single-instance --margin-top=700 --edge=background --layer=overlay -o background_opacity=0  cava"
 
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -488,14 +487,14 @@ binds {
     Mod+Shift+T hotkey-overlay-title="Open a Terminal: ptyxis" { spawn "ptyxis"; }
     Mod+space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi -show drun || pkill rofi"; }
     Mod+D hotkey-overlay-title="Run a Application Launcher: fuzzel" { spawn "fuzzel"; }
-    Mod+semicolon hotkey-overlay-title="Open clipboard manager: copyq" { spawn "copyq toggle"; } // use the flatpak com.github.hluk.copyq
-    Mod+B hotkey-overlay-title="Open web browser" { spawn "xdg-open https://"; }
+    Mod+semicolon hotkey-overlay-title="Open clipboard manager: copyq" { spawn-sh "copyq toggle"; } // use the flatpak com.github.hluk.copyq
+    Mod+B hotkey-overlay-title="Open web browser" { spawn-sh "xdg-open https://"; }
     Mod+E hotkey-overlay-title="Open file manager: nautilus" { spawn "nautilus"; }
     Mod+Shift+C hotkey-overlay-title="Open code editor: code" { spawn "code"; } // may want to change it 
     Mod+P hotkey-overlay-title="Color picker: " { spawn-sh "niri msg pick-color | grep -oP 'Hex: \\K#[0-9a-fA-F]+' | wl-copy"; }
     Mod+Shift+M hotkey-overlay-title="Open spotify" { spawn "flatpak run com.spotify.Client";}
     Mod+N hotkey-overlay-title="Open Neovim" { spawn-sh "kitty nvim"; }
-    Mod+alt+V hotkey-overlay-title="Open volume control: pavucontrol" { spawn "flatpak run org.pulseaudio.pavucontrol"; }
+    Mod+alt+V hotkey-overlay-title="Open volume control: pavucontrol" { spawn "pavucontrol"; }
 
     //hide waybar
     Mod+Shift+W hotkey-overlay-title="Toggle waybar" { spawn-sh "killall -USR1 waybar"; }
@@ -511,13 +510,13 @@ binds {
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
   
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0 && mako-osd"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1- && mako-osd"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle &&  mako-osd"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && mako-osd mic"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0 && notify-osd vol"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1- && notify-osd vol"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle &&  notify-osd vol"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && notify-osd mic"; }
 
     // This will work with any MPRIS-enabled media player.
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
@@ -526,8 +525,8 @@ binds {
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
     // Adjust brightness with visual feedback.
-    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set +10% && mako-osd backlight"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set 10%- && mako-osd backlight"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set +10% && notify-osd backlight"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set 10%- && notify-osd backlight"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
