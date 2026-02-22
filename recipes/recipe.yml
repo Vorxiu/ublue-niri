@@ -161,7 +161,7 @@ modules:
     system:
       enabled:
         - podman.socket
-        - lightdm-gtk
+        - lightdm.service
         - ananicy-cpp.service
         - uupd.timer
         # - docker.socket
