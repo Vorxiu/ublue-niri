@@ -165,13 +165,14 @@ modules:
         - ananicy-cpp.service
         - uupd.timer
         # - docker.socket
+        
     user:
       enabled:
-        - waybar.service
+        - mako-custom.service
         - gnome-keyring-daemon.socket
+        - waybar.service
         - swaybg.service
         - swayidle.service
-        - mako.service
         - wlsunset
         - polkit-mate.service
 
