@@ -20,6 +20,7 @@
         "custom/recorder",
         "privacy",
         "tray",
+        "custom/mako",
         "clock",
         "group/main",
         "group/group-power"
@@ -39,6 +40,7 @@
         "format": "{:%H\n%M}",
         "tooltip": true,
         "tooltip-format": "{calendar}",
+        "on-click": "[ \"$(makoctl mode)\" = \"dnd\" ] && makoctl mode -r dnd || makoctl mode -s dnd",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
@@ -152,11 +154,12 @@
             "󰤨"
         ],
         "format-disconnected": "󰪎",
-        // "on-click": "kitty -e nmtui",
+        "on-click": "uwsm-app -- kitty -e nmtui",
         "interval": 2,
         "tooltip": true,
         "tooltip-format": "<tt>{ifname} via {gwaddr} \nSSID: {essid}   Signal: {signalStrength}%\nDown: {bandwidthDownBytes}/s   Up: {bandwidthUpBytes}/s\nIP: {ipaddr} </tt>"
     },
+
     "bluetooth": {
         "markup": true,
         "format": "{icon}",
@@ -186,6 +189,19 @@
             "off": "  ",
             "on": "  "
         }
+    },
+    "custom/mako": {
+        "exec": "makoctl mode | grep -q dnd && echo '{\"class\":\"activated\"}' || echo '{\"class\":\"deactivated\"}'",
+        "on-click": "[ \"$(makoctl mode)\" = \"dnd\" ] && makoctl mode -r dnd || makoctl mode -s dnd",
+        "interval": 1,
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": true,
+        "tooltip-format": "Toggle DND on/off"
     },
     "backlight": {
         "device": "intel_backlight",
