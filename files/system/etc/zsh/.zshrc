@@ -42,7 +42,6 @@ zinit snippet OMZP::command-not-found
 autoload -Uz compinit && compinit
 autoload -Uz zmv
 
-
 zinit cdreplay -q
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
