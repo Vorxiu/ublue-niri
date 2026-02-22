@@ -65,7 +65,7 @@ modules:
         - bazaar
         - curl
         - cava
-        - copyq
+        - nwg-clipman
         - distrobox
         # - docker-ce
         # - docker-ce-cli
@@ -101,9 +101,9 @@ modules:
         - sushi
         - network-manager-applet
         - NetworkManager-openvpn
+        - NetworkManager-tui
         - blueman
         - niri
-        - nwg-wrapper
         - papirus-icon-theme
         - python3-neovim
         - python3-gobject
@@ -113,7 +113,6 @@ modules:
         - mate-polkit
         - powertop
         - podman-compose
-        - ptyxis
         - python-pip
         - qt6ct
         - qt6-qtwayland
@@ -122,7 +121,8 @@ modules:
         - rofimoji
         - rustup
         - slurp
-        - sddm
+        - lightdm-gtk
+        - lightdm-gtk-greeter-settings
         - sshfs
         - ssh
         - stow
@@ -155,13 +155,13 @@ modules:
         - breeze-icon-theme
         - nvtop
         - htop
+        - swww
      
   - type: systemd
     system:
       enabled:
         - podman.socket
-        # - lightdm.service
-        - sddm.service
+        - lightdm-gtk
         - ananicy-cpp.service
         - uupd.timer
         # - docker.socket
