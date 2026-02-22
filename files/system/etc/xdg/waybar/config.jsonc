@@ -145,7 +145,7 @@
         "tooltip": true
     },
     "network": {
-        "format-wifi": "{icon}",
+        "format-wifi": "{icon} ",
         "format-ethernet": "󰈀",
         "format-icons": [
             "󰤯",
