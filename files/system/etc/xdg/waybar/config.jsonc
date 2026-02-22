@@ -40,7 +40,7 @@
         "format": "{:%H\n%M}",
         "tooltip": true,
         "tooltip-format": "{calendar}",
-        "on-click": "[ \"$(makoctl mode)\" = \"dnd\" ] && makoctl mode -r dnd || makoctl mode -s dnd",
+        "on-click": "[ \"$(makoctl mode)\" = \"dnd\" ] && makoctl mode -r dnd || makoctl mode -s dnd ; pkill -RTMIN+2 waybar",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
@@ -191,13 +191,14 @@
         }
     },
     "custom/mako": {
-        "exec": "makoctl mode | grep -q dnd && echo '{\"class\":\"activated\"}' || echo '{\"class\":\"deactivated\"}'",
-        "on-click": "[ \"$(makoctl mode)\" = \"dnd\" ] && makoctl mode -r dnd || makoctl mode -s dnd",
-        "interval": 1,
+        "exec": "makoctl mode | grep -q dnd && echo '{\"alt\":\"activated\",\"class\":[\"activated\"]}' || echo '{\"alt\":\"deactivated\",\"class\":[\"deactivated\"]}'",
+        "on-click": "[ \"$(makoctl mode)\" = \"dnd\" ] && makoctl mode -r dnd || makoctl mode -s dnd; pkill -RTMIN+2 waybar",
+        "interval": "once",
+        "signal": 2,
         "return-type": "json",
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
+            "activated": " ",
             "deactivated": ""
         },
         "tooltip": true,
