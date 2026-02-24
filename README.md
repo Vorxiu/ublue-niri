@@ -63,14 +63,16 @@ cosign verify --key cosign.pub ghcr.io/vorxiu/ublue-niri
 - [x] nicer lockscreen (hyprlock?)
 - [x] papirus-icon-theme and add gschema overrides in the config
 - [x] ntsync
-- [x] sddm with breeze
-- [X] bake some vscode extensions into the iso
 - [ ] bbrew?
-- [ ] Fix: Swaybg not automatically starting via systemD
+- [x] Fix: Swaybg not automatically starting via systemD
 - [ ] hyprlock not reading the config from /etc/hypr/hyprlock
 - [ ] ISO for easy installation
+- [ ] just recipes and yafti
+- [ ] fix hyprlock black screen after unlock
+- [ ] rofi script
 
-### FIX VS CODE FONTS
+
+### FIX VS CODE FONTS AND ICONS
 
 ```bash
 fc-cache -f -v ~/.local/share/fonts ~/.fonts
