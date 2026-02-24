@@ -38,7 +38,7 @@ background-color=#191c22c8
 group-by=app-name
 format=<b>%s</b>\n%b
 padding=10
-outer-margin=10
+outer-margin=40
 
 [app-name=volume group-index=0]
 invisible=0
