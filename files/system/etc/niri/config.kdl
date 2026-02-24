@@ -490,7 +490,7 @@ binds {
     Mod+D hotkey-overlay-title="Run a Application Launcher: fuzzel" { spawn "fuzzel" "--launch-prefix=uwsm-app --"; }
     Mod+shift+D hotkey-overlay-title="Window switcher" { spawn-sh "niri-fuzzel-switcher"; }
 
-    Mod+semicolon hotkey-overlay-title="Open emoji picker" { spawn-sh "rofimoji --use-icons --hidden-descriptions -a clipboard --typer wtype"; } // use the flatpak com.github.hluk.copyq
+    Mod+semicolon hotkey-overlay-title="Open emoji picker" { spawn-sh "rofimoji --use-icons --hidden-descriptions -a clipboard --typer wtype --selector-args="-theme /etc/xdg/rofi/config.rasi""; } // use the flatpak com.github.hluk.copyq
     Mod+B hotkey-overlay-title="Open web browser" { spawn-sh "uwsm-app -- xdg-open https://"; }
     Mod+E hotkey-overlay-title="Open file manager: nautilus" { spawn "uwsm-app" "nautilus"; }
     Mod+Shift+C hotkey-overlay-title="Open code editor: code" { spawn "uwsm-app" "code"; } // may want to change it 
