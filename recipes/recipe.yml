@@ -31,11 +31,6 @@ modules:
     include:
       - zz-ublue-niri.gschema.override
 
-  # - type: script
-  #   snippets:
-  #     - "brew tap ublue-os/tap"
-  #     - "brew install Valkyrie00/homebrew-bbrew/bbrew"
-          
   - type: dnf
     repos:
       cleanup: true
@@ -43,7 +38,7 @@ modules:
         - ublue-os/packages
         - solopasha/hyprland
         - bieszczaders/kernel-cachyos-addons
-        # annanicy rules and cachykernel
+        - avengemedia/dms
       nonfree: rpmfusion
 
     install:
@@ -52,22 +47,16 @@ modules:
       exclude:
         - alacritty
       packages:
-        - adwaita-sans-fonts
         - android-tools
         - ananicy-cpp
         - cachyos-ananicy-rules
         - brightnessctl
-        - desktop-backgrounds-basic
-        - flatpak-builder
         - btop
         - bazaar
         - curl
         - cava
-        - nwg-clipman
-        - distrobox
-        # - docker-ce
-        # - docker-ce-cli
         - containerd.io
+        - distrobox
         - podman
         - fd-find
         - fzf
@@ -77,29 +66,25 @@ modules:
         - fastfetch
         - git
         - gnome-keyring
-        - grim
         - gvfs
         - gvfs-mtp
         - gvfs-fuse
         - gvfs-archive
         - gvfs-nfs
         - gvfs-smb
-        - hyprlock
         - kde-connect # nice to have
         - kitty
-        #- lightdm
-        - mako
         - man-db
         - neovim
         - nautilus
         - blueman-nautilus
         - kde-connect-nautilus
+        - dms
+        - dms-greeter
         - nautilus-python
         - sushi
-        - network-manager-applet
         - NetworkManager-openvpn
         - NetworkManager-tui
-        - blueman
         - niri
         - papirus-icon-theme
         - python3-neovim
@@ -108,29 +93,19 @@ modules:
         - polkit
         - mate-polkit
         - podman-compose
-        - qt6ct
         - qt6-qtwayland
         - ripgrep
         - rofi
         - rofimoji
-        - rustup
-        - slurp
-        - lightdm-gtk
         - sshfs
         - ssh
-        - stow
-        - swaybg
-        - swayidle
         - tldr
         - tuned-ppd
         - toolbox
         - upower
         - uupd
         - uwsm
-        - waybar
-        - waypaper
         - wget
-        - wf-recorder
         - xdg-desktop-portal-gnome
         - xdg-desktop-portal-gtk
         - xwayland-satellite
@@ -148,25 +123,19 @@ modules:
         - breeze-icon-theme
         - nvtop
         - htop
-        - swww
-     
+
   - type: systemd
     system:
       enabled:
         - podman.socket
-        - lightdm.service
+        - greetd.service
         - ananicy-cpp.service
         - uupd.timer
-        # - docker.socket
-        
+
     user:
       enabled:
-        - mako-custom.service
+        - dms
         - gnome-keyring-daemon.socket
-        - waybar.service
-        - swaybg.service
-        - swayidle.service
-        - wlsunset
         - polkit-mate.service
       disabled:
         - mako.service
