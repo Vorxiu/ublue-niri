@@ -503,7 +503,9 @@ binds {
     Mod+Shift+W hotkey-overlay-title="Toggle waybar" { spawn-sh "killall -USR1 waybar"; }
     //turn off notifcations
     Mod+Shift+N hotkey-overlay-title="Toggle notifications" { spawn-sh "[ \"$(makoctl mode)\" = \"dnd\" ] && makoctl mode -r dnd || makoctl mode -s dnd"; }
-    Mod+alt+C hotkey-overlay-title="Open Clipboard" { spawn "nwg-clipman"; }
+    Mod+alt+C hotkey-overlay-title="Open Clipboard" { spawn-sh  "uwsm-app nwg-clipman"; }
+    Mod+Shift+semicolon hotkey-overlay-title="Open Clipboard" { spawn-sh  "uwsm-app nwg-clipman"; }
+
 
     Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "pidof hyprlock || hyprlock"; }
     Super+escape hotkey-overlay-title="logout menu" { spawn "wlogout"; }
