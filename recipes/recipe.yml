@@ -43,8 +43,6 @@ modules:
         - ublue-os/packages
         - solopasha/hyprland
         - bieszczaders/kernel-cachyos-addons
-        - monkeygold/nautilus-open-any-terminal
-
         # annanicy rules and cachykernel
       nonfree: rpmfusion
 
@@ -97,7 +95,6 @@ modules:
         - blueman-nautilus
         - kde-connect-nautilus
         - nautilus-python
-        - nautilus-open-any-terminal
         - sushi
         - network-manager-applet
         - NetworkManager-openvpn
@@ -106,14 +103,11 @@ modules:
         - niri
         - papirus-icon-theme
         - python3-neovim
-        - python3-gobject
         - pavucontrol
         - playerctl
         - polkit
         - mate-polkit
-        - powertop
         - podman-compose
-        - python-pip
         - qt6ct
         - qt6-qtwayland
         - ripgrep
@@ -122,14 +116,13 @@ modules:
         - rustup
         - slurp
         - lightdm-gtk
-        - lightdm-gtk-greeter-settings
         - sshfs
         - ssh
         - stow
         - swaybg
         - swayidle
-        - swaylock-effects
         - tldr
+        - tuned-ppd
         - toolbox
         - upower
         - uupd
@@ -145,7 +138,7 @@ modules:
         - zsh
         - wlsunset
         - zstd
-          
+
     remove:
       auto-remove: true
       packages:
@@ -175,5 +168,7 @@ modules:
         - swayidle.service
         - wlsunset
         - polkit-mate.service
+      disabled:
+        - mako.service
 
   - type: signing
