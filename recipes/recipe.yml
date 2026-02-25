@@ -46,6 +46,7 @@ modules:
       allow-erasing: true
       exclude:
         - alacritty
+        - waybar
       packages:
         - android-tools
         - ananicy-cpp
@@ -53,9 +54,8 @@ modules:
         - brightnessctl
         - btop
         - bazaar
-        - curl
-        - cava
         - containerd.io
+        - cups-pk-helper
         - distrobox
         - podman
         - fd-find
@@ -63,6 +63,7 @@ modules:
         - firewall-config
         - fuse-overlayfs # appimage support
         - fuzzel
+        - fprintd
         - fastfetch
         - git
         - gnome-keyring
@@ -81,18 +82,18 @@ modules:
         - kde-connect-nautilus
         - dms
         - dms-greeter
+        - greetd-selinux
         - nautilus-python
         - sushi
         - NetworkManager-openvpn
-        - NetworkManager-tui
         - niri
-        - papirus-icon-theme
         - python3-neovim
         - pavucontrol
         - playerctl
         - polkit
         - mate-polkit
         - podman-compose
+        - qt6ct
         - qt6-qtwayland
         - ripgrep
         - rofi
@@ -111,7 +112,6 @@ modules:
         - xwayland-satellite
         - zoxide
         - zsh
-        - wlsunset
         - zstd
 
     remove:
@@ -137,7 +137,12 @@ modules:
         - dms
         - gnome-keyring-daemon.socket
         - polkit-mate.service
-      disabled:
-        - mako.service
+
+  - type: os-release
+    properties:
+        ID: Kanzo
+        NAME: Kanzo Linux
+        PRETTY_NAME: Kanzo Linux
+        ID_LIKE: fedora
 
   - type: signing
