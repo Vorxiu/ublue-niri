@@ -112,8 +112,8 @@ input {
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     QT_QPA_PLATFORM "wayland"
-    QT_QPA_PLATFORMTHEME "gtk3"
-    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_QPA_PLATFORMTHEME_QT6 "qt6ct"
     XDG_CURRENT_DESKTOP "niri"
 }
 // Settings that influence how windows are positioned and sized.

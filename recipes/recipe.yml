@@ -48,12 +48,15 @@ modules:
         - alacritty
         - waybar
       packages:
+        - adw-gtk3-theme
         - android-tools
         - ananicy-cpp
         - cachyos-ananicy-rules
         - brightnessctl
         - btop
         - bazaar
+        - bluez
+        - bluez-tools
         - containerd.io
         - cups-pk-helper
         - distrobox
@@ -61,7 +64,7 @@ modules:
         - fd-find
         - fzf
         - firewall-config
-        - fuse-overlayfs # appimage support
+        - fuse-overlayfs
         - fuzzel
         - fprintd
         - fastfetch
@@ -88,16 +91,15 @@ modules:
         - NetworkManager-openvpn
         - niri
         - python3-neovim
+        - papirus-icon-theme
         - pavucontrol
-        - playerctl
+        - nwg-look
         - polkit
         - mate-polkit
         - podman-compose
         - qt6ct
         - qt6-qtwayland
         - ripgrep
-        - rofi
-        - rofimoji
         - sshfs
         - ssh
         - tldr
@@ -121,6 +123,7 @@ modules:
         - firefox
         - firefox-langpacks
         - breeze-icon-theme
+        - waybar
         - nvtop
         - htop
 
@@ -140,9 +143,9 @@ modules:
 
   - type: os-release
     properties:
-        ID: Kanzo
-        NAME: Kanzo Linux
-        PRETTY_NAME: Kanzo Linux
+        ID: Kanso
+        NAME: Kanso Linux
+        PRETTY_NAME: Kanso Linux
         ID_LIKE: fedora
 
   - type: signing
