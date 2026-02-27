@@ -67,9 +67,11 @@ modules:
         - fuse-overlayfs
         - fuzzel
         - fprintd
+        - fprintd-pam
         - fastfetch
         - git
         - gnome-keyring
+
         - gvfs
         - gvfs-mtp
         - gvfs-fuse
@@ -109,6 +111,7 @@ modules:
         - uupd
         - uwsm
         - wget
+        - wl-mirror
         - xdg-desktop-portal-gnome
         - xdg-desktop-portal-gtk
         - xwayland-satellite
@@ -140,12 +143,14 @@ modules:
         - dms
         - gnome-keyring-daemon.socket
         - polkit-mate.service
+      disabled:
+        - waybar.service
 
   - type: os-release
     properties:
-        ID: Kanso
-        NAME: Kanso Linux
-        PRETTY_NAME: Kanso Linux
-        ID_LIKE: fedora
+      ID: Kanso
+      NAME: Kanso Linux
+      PRETTY_NAME: Kanso Linux
+      ID_LIKE: fedora
 
   - type: signing
