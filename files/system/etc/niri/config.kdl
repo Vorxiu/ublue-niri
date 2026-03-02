@@ -316,11 +316,11 @@ overview {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
+spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "wl-paste --type text --watch cliphist store"
 spawn-at-startup "wl-paste --type image --watch cliphist store"
 spawn-at-startup "pkill waybar"
 // spawn-at-startup "kitten panel --single-instance --margin-top=700 --edge=background --layer=overlay -o background_opacity=0  cava"
-spawn-at-startup "qs" "-c" "noctalia-shell"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -412,11 +412,11 @@ binds {
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {spawn-sh "qs -c noctalia-shell ipc call lockScreen lock";}
     Super+escape hotkey-overlay-title="logout menu" { spawn "wlogout"; }
 
-    XF86Display { screenshot-region; }
-    Mod+Shift+S { screenshot-full; }
+    XF86Display { screenshot; }
+    Mod+Shift+S { screenshot-screen; }
 
     Mod+XF86Display { screenshot-window; } 
-    Mod+Shift+XF86Display { screenshot-full; }
+    Mod+Shift+XF86Display { screenshot-screen; }
   
     // Audio & Brightness
     XF86AudioRaiseVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
