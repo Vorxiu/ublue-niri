@@ -50,15 +50,11 @@ modules:
         
       packages:
         - adw-gtk3-theme
-        - android-tools
         - ananicy-cpp
         - cachyos-ananicy-rules
-        - brightnessctl
         - bazaar
-        - bluez
+        - btop
         - bluez-tools
-        - containerd.io
-        - cups-pk-helper
         - distrobox
         - podman
         - fd-find
@@ -74,42 +70,34 @@ modules:
         - gvfs-mtp
         - gvfs-fuse
         - gvfs-archive
+        - gvfs-obexftp
         - gvfs-nfs
         - gvfs-smb
-        - kde-connect # nice to have
         - kitty
         - man-db
-        - neovim
         - nautilus
-        - blueman-nautilus
-        - kde-connect-nautilus
+        # - blueman-nautilus
+        - nautilus-sendto
         - noctalia-shell
-        - gtkgreet
-        - greetd-selinux
+        - lightdm-gtk
         - nautilus-python
         - sushi
         - NetworkManager-openvpn
         - niri
-        - python3-neovim
         - papirus-icon-theme
-        - pavucontrol
-        - nwg-look
+        # - nwg-look
         - polkit
         - mate-polkit
         - podman-compose
         - qt6ct
         - qt6-qttools
         - qt6-qtwayland
-        - ripgrep
-        - sshfs
-        - ssh
         - tldr
         - tuned-ppd
         - toolbox
         - upower
         - uupd
         - uwsm
-        - wget
         - wtype
         - wl-mirror
         - wireguard-tools
@@ -136,7 +124,7 @@ modules:
     system:
       enabled:
         - podman.socket
-        - greetd.service
+        - lightdm.service
         - ananicy-cpp.service
         - uupd.timer
 
