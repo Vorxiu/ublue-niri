@@ -1,25 +1,19 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<name>
 name: ublue-niri
-# description will be included in the image's metadata
-description: minimal niri on ublue
-
-# the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/base-main
-image-version: latest # latest is also supported if you want new updates ASAP
+description: Atomic distro with the Niri and noctalia shell
+image-version: latest 
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
   - type: files
     files:
       - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
+        destination: / 
+  
   - type: brew
-    nofile-limits: true # increase nofile limits
-    brew-analytics: false # disable telemetry
+    nofile-limits: true
+    brew-analytics: false
     direct-pull: true
 
   - type: fonts
@@ -35,22 +29,18 @@ modules:
     repos:
       cleanup: true
       copr:
-        - ublue-os/packages
+        - ublue-os/pa-lto
         - solopasha/hyprland
         - bieszczaders/kernel-cachyos-addons
-        # - avengemedia/dms
       nonfree: rpmfusion
-
     install:
       allow-erasing: true
       exclude:
         - alacritty
         - waybar
         - mako
-        
       packages:
         - adw-gtk3-theme
-        - ananicy-cpp
         - cachyos-ananicy-rules
         - bazaar
         - btop
@@ -121,7 +111,6 @@ modules:
       enabled:
         - podman.socket
         - lightdm.service
-        - ananicy-cpp.service
         - uupd.timer
 
     user:
@@ -139,5 +128,10 @@ modules:
       PRETTY_NAME: Kanso Linux
       ID_LIKE: fedora
       DEFAULT_HOSTNAME: kanso-linux
+  
+  - type: custom-kernel
+    kernel: cachyos
+    initramfs: true
 
+  - type: initramfs
   - type: signing
