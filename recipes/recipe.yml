@@ -29,8 +29,7 @@ modules:
     repos:
       cleanup: true
       copr:
-        - ublue-os/pa-lto
-        - solopasha/hyprland
+        - ublue-os/packages
         - bieszczaders/kernel-cachyos-addons
       nonfree: rpmfusion
     install:
