@@ -16,20 +16,18 @@ export AUTO_NOTIFY_ENABLE_SSH=1
 
 
 # Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+ zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 
-zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
 
 zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-auto-notify
 zinit light aubreypwd/zsh-plugin-require
 
-zinit ice wait lucid
 zinit load redxtech/zsh-kitty
 
 # Add in snippets
@@ -37,6 +35,7 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::qrcode
 
 # Load completions
 autoload -Uz compinit && compinit
