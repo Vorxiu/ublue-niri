@@ -82,6 +82,7 @@ modules:
         - tuned-ppd
         - toolbox
         - upower
+        - ublue-os-just
         - uupd
         - uwsm
         - wtype
