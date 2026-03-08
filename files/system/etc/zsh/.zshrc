@@ -35,15 +35,15 @@ zinit wait lucid for \
     
 # zinit light zsh-users/zsh-syntax-highlighting
 # zinit light zsh-users/zsh-completions
-
 # zinit light zsh-users/zsh-autosuggestions
 
-zinit light MichaelAquilina/zsh-auto-notify
-zinit light aubreypwd/zsh-plugin-require
+if [[ -z $SSH_CONNECTION && -z $CONTAINER_ID ]]; then
+  zinit light MichaelAquilina/zsh-auto-notify
+  zinit light aubreypwd/zsh-plugin-require
+fi
 
 zinit load redxtech/zsh-kitty
 
-# Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
@@ -79,7 +79,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt autocd
-# setopt correct
 setopt interactivecomments
 setopt glob_dots
 setopt no_beep
@@ -104,7 +103,7 @@ zstyle ':completion:*:git-checkout:*' sort false
 zstyle ":fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*" fzf-flags "--preview-window=wrap" "${FZF_TAB_DEFAULT_FZF_FLAGS[@]}"
 zstyle ":fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*" fzf-preview "[[ -n \${(P)word} ]] && echo \${(P)word} || echo \<unset\>"
 zstyle ':completion:*:descriptions' format '[%d]'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --hyperlink --icons=auto $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
@@ -114,20 +113,25 @@ if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
 fi
 
 # Aliases
-alias ls='eza --icons=auto --hyperlink'
-alias vim='nvim'
-alias c='clear'
+alias l='ls -l'
+alias vim='nvim || vim'
 alias icat="kitten icat"
 alias cat="bat"
+alias ls='ls --color --group-directories-first'
 
+if (( $+commands[eza] )); then
+  alias ls='eza --icons=auto --hyperlink -l group-directories-first'
+  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=auto --hyperlink --icons=auto $realpath'
+fi
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh --cmd  cd)"
 
-
-require "zoxide" "brew install zoxide" "brew"
-require "eza" "brew install eza" "brew"
-require "fzf" "brew install fzf" "brew"
-require "bat" "brew install bat" "brew"
-require "nvim" "brew install neovim" "brew"
-require "bbrew" "brew install Valkyrie00/homebrew-bbrew/bbrew" "brew"
+if (( $+commands[brew] )); then
+  require "zoxide" "brew install zoxide" "brew"
+  require "eza" "brew install eza" "brew"
+  require "fzf" "brew install fzf" "brew"
+  require "bat" "brew install bat" "brew"
+  require "nvim" "brew install neovim" "brew"
+  require "bbrew" "brew install Valkyrie00/homebrew-bbrew/bbrew" "brew"
+fi
