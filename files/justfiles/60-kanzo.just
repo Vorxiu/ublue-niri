@@ -30,6 +30,7 @@ install-default-configs:
     mkdir -p ~/.config/kitty
     mkdir -p ~/.config/niri
     cp -r /etc/xdg/kitty ~/.config/
+    cp -r /etc/xdg/fuzzel ~/.config/
     cp -r /etc/zsh/.zshrc ~/.zshrc
     cp -r /etc/niri/* ~/.config/niri/
     cp -rn /etc/skel/.config/Code/User/settings.json ~/.config/Code/User/settings.json
