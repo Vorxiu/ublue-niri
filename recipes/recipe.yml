@@ -34,6 +34,7 @@ modules:
       cleanup: true
       copr:
         - ublue-os/packages
+        - bieszczaders/kernel-cachyos 
         - bieszczaders/kernel-cachyos-addons
         - solopasha/hyprland
       nonfree: rpmfusion
@@ -45,7 +46,6 @@ modules:
         - mako
       packages:
         - adw-gtk3-theme
-        - cachyos-ananicy-rules
         - bazaar
         - btop
         - bluez-tools
@@ -98,10 +98,28 @@ modules:
         - zoxide
         - zsh
         - zstd
+        - scx-scheds 
+        - scx-tools
+        - scx-manager
+
+    replace:
+      - from-repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos
+        allow-erasing: true
+        packages:
+          - old: kernel
+            new: kernel-cachyos
+      - from-repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-addons
+        packages:
+          - old: zram-generator-defaults
+            new: cachyos-settings
 
     remove:
       auto-remove: true
       packages:
+        - kernel-core
+        - kernel-modules
+        - kernel-modules-core
+        - kernel-modules-extra
         - weston
         - firefox
         - firefox-langpacks
@@ -134,9 +152,5 @@ modules:
       ID_LIKE: fedora
       DEFAULT_HOSTNAME: kanso-linux
   
-  # - type: custom-kernel
-  #   kernel: cachyos
-  #   initramfs: true
-
   - type: initramfs
   - type: signing
