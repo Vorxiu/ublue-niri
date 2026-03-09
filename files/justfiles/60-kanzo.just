@@ -10,7 +10,7 @@ install-vscode:
     cp -rn /etc/skel/.config/Code/User/settings.json ~/.config/Code/User/settings.json
     ujust fix-fonts
 
-install-jetbrains:
+install-jetbrains-toolbox:
     #!/usr/bin/env bash
     set -euxo pipefail
     brew tap ublue-os/tap
@@ -27,10 +27,5 @@ fix-fonts:
 install-default-configs:
     #!/usr/bin/env bash
     set -euxo pipefail
-    mkdir -p ~/.config/kitty
-    mkdir -p ~/.config/niri
-    cp -r /etc/xdg/kitty ~/.config/
-    cp -r /etc/xdg/fuzzel ~/.config/
-    cp -r /etc/zsh/.zshrc ~/.zshrc
-    cp -r /etc/niri/* ~/.config/niri/
+    chezmoi update --no-tty --force
     cp -rn /etc/skel/.config/Code/User/settings.json ~/.config/Code/User/settings.json
