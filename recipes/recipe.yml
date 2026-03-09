@@ -79,7 +79,7 @@ modules:
         - nautilus-open-any-terminal
         - noctalia-shell
         - blueman-nautilus
-        - lightdm-gtk
+        - sddm
         - nautilus-python
         - NetworkManager-openvpn
         - niri
@@ -132,7 +132,7 @@ modules:
     system:
       enabled:
         - podman.socket
-        - lightdm.service
+        - sddm.service
         - uupd.timer
 
     user:
