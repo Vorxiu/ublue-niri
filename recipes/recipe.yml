@@ -11,6 +11,10 @@ modules:
       - source: system
         destination: / 
   
+  - type: script
+    scripts:
+      - post_build.sh
+
   - type: brew
     nofile-limits: true
     brew-analytics: false
@@ -30,9 +34,14 @@ modules:
     install: true
 
   - type: chezmoi
-    repository: "https://github.com/Vorxiu/niri-dots" # my dotfiles repo
-    all-users: true # make users have to enable chezmoi manually
-    file-conflict-policy: skip # override changed files with those from the repo
+    repository: "https://github.com/Vorxiu/niri-dots" 
+    all-users: true
+    file-conflict-policy: skip
+
+  - type: custom-kernel
+    kernel: cachyos
+    initramfs: true
+    source: local
 
   - type: dnf
     repos:
@@ -52,10 +61,10 @@ modules:
       packages:
         - adw-gtk3-theme
         - bazaar
+        - kernel-cachyos-devel-matched
         - btop
         - bat
         - bluez-tools
-        - bazzite-portal
         - distrobox
         - eza
         - podman
@@ -150,11 +159,11 @@ modules:
       PRETTY_NAME: Kanso Linux
       ID_LIKE: fedora
       DEFAULT_HOSTNAME: kanso-linux
-
-  - type: custom-kernel
-    kernel: cachyos
-    initramfs: true
-    source: local
     
+  - type: yafti
+    custom-flatpaks:
+        - Celluloid: io.github.celluloid_player.Celluloid
+        - Krita: org.kde.krita
+
   - type: initramfs
   - type: signing
