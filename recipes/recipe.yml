@@ -29,6 +29,11 @@ modules:
     validate: true
     install: true
 
+  - type: chezmoi
+    repository: "https://github.com/Vorxiu/niri-dots" # my dotfiles repo
+    all-users: true # make users have to enable chezmoi manually
+    file-conflict-policy: skip # override changed files with those from the repo
+
   - type: dnf
     repos:
       cleanup: true
@@ -36,7 +41,7 @@ modules:
         - ublue-os/packages
         - bieszczaders/kernel-cachyos 
         - bieszczaders/kernel-cachyos-addons
-        - solopasha/hyprland
+        - monkeygold/nautilus-open-any-terminal
       nonfree: rpmfusion
     install:
       allow-erasing: true
@@ -48,8 +53,11 @@ modules:
         - adw-gtk3-theme
         - bazaar
         - btop
+        - bat
         - bluez-tools
+        - bazzite-portal
         - distrobox
+        - eza
         - podman
         - fd-find
         - fzf
@@ -68,14 +76,15 @@ modules:
         - gvfs-smb
         - kitty
         - nautilus
-        - blueman-nautilus
+        - nautilus-open-any-terminal
         - noctalia-shell
+        - blueman-nautilus
         - lightdm-gtk
         - nautilus-python
         - NetworkManager-openvpn
         - niri
         - papirus-icon-theme
-        # - nwg-look
+        - nwg-look
         - polkit
         - mate-polkit
         - podman-compose
@@ -88,7 +97,6 @@ modules:
         - upower
         - ublue-os-just
         - uupd
-        - uwsm
         - wtype
         - wl-mirror
         - wireguard-tools
@@ -142,12 +150,11 @@ modules:
       PRETTY_NAME: Kanso Linux
       ID_LIKE: fedora
       DEFAULT_HOSTNAME: kanso-linux
-  
+
   - type: custom-kernel
     kernel: cachyos
     initramfs: true
     source: local
     
-
   - type: initramfs
   - type: signing
