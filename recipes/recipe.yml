@@ -86,7 +86,7 @@ modules:
         - nautilus-python
         - NetworkManager-openvpn
         - niri
-        - papirus-icon-theme
+        # - papirus-icon-theme
         - nwg-look
         - polkit
         - mate-polkit
@@ -96,7 +96,6 @@ modules:
         - qt6-qtwayland
         - tldr
         - tuned-ppd
-        - toolbox
         - upower
         - ublue-os-just
         - uupd
@@ -147,22 +146,30 @@ modules:
         - mako.service
   
   - type: custom-kernel
-    kernel: cachyos
+    kernel: cachyos-lto
     initramfs: true
     source: local
+    nvidia: false
+    sign:
+      key: /tmp/certs/MOK.key
+      cert: /usr/share/cert/MOK.pem
+      mok-password: kansolinux
+    secrets:
+      - type: file
+        source: ./MOK.key
+        mount:
+          type: file
+          destination: /tmp/certs/MOK.key
+
 
   - type: os-release
     properties:
-      ID: Kanzo
-      NAME: Kanzo Linux
-      PRETTY_NAME: Kanzo Linux
+      ID: Kanso
+      NAME: Kanso Linux
+      PRETTY_NAME: Kanso Linux
       ID_LIKE: fedora
-      DEFAULT_HOSTNAME: kanzo-linux
+      DEFAULT_HOSTNAME: kanso-linux
     
   - type: yafti
-    custom-flatpaks:
-        - Celluloid: io.github.celluloid_player.Celluloid
-        - Krita: org.kde.krita
 
-  - type: initramfs
   - type: signing
