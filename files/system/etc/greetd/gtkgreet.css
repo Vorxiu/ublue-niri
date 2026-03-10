@@ -3,7 +3,6 @@ window {
   background-size: cover;
   background-position: center;
 }
-
 box#body {
   background-color: rgba(50, 50, 50, 0.5);
   border-radius: 10px;
