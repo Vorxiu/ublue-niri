@@ -42,13 +42,17 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 cosign verify --key cosign.pub ghcr.io/vorxiu/ublue-niri
 ```
 
-
-
 ### FIX VS CODE FONTS AND ICONS
 
 ```bash
-fc-cache -f -v ~/.local/share/fonts ~/.fonts
-rm -rf ~/.cache/fontconfig/*
-fc-cache -f -v
-sudo fc-cache -f -v /usr/share/fonts /usr/local/share/fonts
+ujust fix-fonts
 ```
+
+### Manually import secure boot certificate into mok manager
+
+```bash
+sudo mokutil --import /usr/share/cert/MOK.pem
+
+```
+
+> Mok password : kansolinux
