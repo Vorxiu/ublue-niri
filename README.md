@@ -10,12 +10,13 @@ Full package list [here](https://github.com/Vorxiu/ublue-niri/blob/main/recipes/
 
 ## Installation
 
-- On any atomic distro with bootc run
+- Disable secure boot and on any atomic distro with bootc run
 ```bash
 bootc switch ghcr.io/vorxiu/ublue-niri:latest
 systemctl reboot
 ```
-- Enroll the MOK key into MOK manager with password `kansolinux`
+- Enroll the MOK key into MOK manager with password `kanso`
+- Re enable secure boot
 
 The `latest` tag will automatically point to the latest build.
 
@@ -40,8 +41,10 @@ ujust fix-fonts
 ### Manually import secure boot certificate into mok manager
 
 ```bash
-sudo mokutil --import /usr/share/cert/MOK.pem
+ujust enroll-secure-boot-key  
 
 ```
 
-> Mok password : kansolinux
+reboot 
+
+> Mok password : kanso
