@@ -284,6 +284,7 @@ window-rule {
     match app-id="^com.github.hluk.copyq$"
     match title="Calculator"
     match title="Open Files"
+    match app-id="it.ublue.Yafti"
     // Firefox/Chrome picture-in-picture
     match title="^Picture-in-Picture$"
     match title="Picture in picture"
