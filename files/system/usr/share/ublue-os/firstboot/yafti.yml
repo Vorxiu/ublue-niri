@@ -5,6 +5,7 @@ properties:
 actions:
   pre:
   - run: notify-send "Kanso Linux" "Starting first boot setup..."
+  - run: brew install Valkyrie00/homebrew-bbrew/bbrew
   - yafti.plugin.flatpak:
       install: org.gnome.Calculator
   post:
