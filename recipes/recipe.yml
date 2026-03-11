@@ -51,8 +51,6 @@ modules:
     # direct-pull: true
 
   - type: script
-    snippets:
-      -  brew install Valkyrie00/homebrew-bbrew/bbrew
     scripts:
       - misc.sh
 
