@@ -166,10 +166,8 @@ screens:
             - Install Neovim: brew install neovim 
             - Install lazyVim Config: git clone https://github.com/LazyVim/starter ~/.config/nvim && rm -rf ~/.config/nvim/.git
         Distrobox:
-          description: Create a Distrobox(container based development). 
+          description: Create a Distrobox container for development. Choose from Arch, Fedora, or Ubuntu.
           default: false
-          condition:
-            run: which distrobox 2>/dev/null | wc -l | grep '^0$'
           packages:
             - Install Arch Distrobox: distrobox create --image ghcr.io/ublue-os/arch-toolbox:latest --name Arch-Distrobox
             - Install Fedora Distrobox: distrobox create --image ghcr.io/ublue-os/fedora-toolbox:latest --name Fedora-Distrobox
