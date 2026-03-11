@@ -11,6 +11,39 @@ modules:
       - source: system
         destination: / 
 
+  - type: dnf
+    repos:
+      copr:
+        - bieszczaders/kernel-cachyos
+        - bieszczaders/kernel-cachyos-addons
+    install:
+      packages:
+        - scx-scheds
+        - scx-tools
+        - scx-manager
+    replace:
+      - from-repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-addons
+        packages:
+          - old: zram-generator-defaults
+            new: cachyos-settings
+  
+  - type: custom-kernel
+    kernel: cachyos-lto
+    initramfs: true
+    source: local
+    nvidia: false
+    sign:
+      key: /tmp/certs/MOK.key
+      cert: /usr/share/cert/MOK.pem
+      mok-password: kansolinux
+    secrets:
+      - type: file
+        source: ./MOK.key
+        mount:
+          type: file
+          destination: /tmp/certs/MOK.key
+
+
   - type: brew
     nofile-limits: true
     brew-analytics: false
@@ -19,6 +52,8 @@ modules:
   - type: script
     snippets:
       -  brew install Valkyrie00/homebrew-bbrew/bbrew
+    scripts:
+      - misc.sh
 
   - type: fonts
     fonts:
@@ -122,22 +157,6 @@ modules:
         - swaylock
         - swayidle
         
-  - type: dnf
-    repos:
-      copr:
-        - bieszczaders/kernel-cachyos
-        - bieszczaders/kernel-cachyos-addons
-    install:
-      packages:
-        - scx-scheds
-        - scx-tools
-        - scx-manager
-    replace:
-      - from-repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-addons
-        packages:
-          - old: zram-generator-defaults
-            new: cachyos-settings
-
   - type: systemd
     system:
       enabled:
@@ -151,23 +170,6 @@ modules:
       disabled:
         - waybar.service
         - mako.service
-
-  - type: custom-kernel
-    kernel: cachyos-lto
-    initramfs: true
-    source: local
-    nvidia: false
-    sign:
-      key: /tmp/certs/MOK.key
-      cert: /usr/share/cert/MOK.pem
-      mok-password: kansolinux
-    secrets:
-      - type: file
-        source: ./MOK.key
-        mount:
-          type: file
-          destination: /tmp/certs/MOK.key
-
 
   - type: os-release
     properties:
