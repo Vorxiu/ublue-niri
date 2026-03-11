@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # create /nix partition
-# mkdir -p /nix
+mkdir /nix
 
 echo "test"
 # install bbrew
