@@ -16,6 +16,10 @@ modules:
     brew-analytics: false
     # direct-pull: true
 
+  - type: script
+    snippets:
+      -  brew install Valkyrie00/homebrew-bbrew/bbrew
+
   - type: fonts
     fonts:
       nerd-fonts:
@@ -41,11 +45,12 @@ modules:
         - ublue-os/packages
       nonfree: rpmfusion
     install:
-      allow-erasing: true
+      # allow-erasing: true
       exclude:
         - alacritty
         - waybar
         - mako
+        - breeze-icon-theme
       packages:
         - adw-gtk3-theme
         - bazaar
@@ -139,7 +144,6 @@ modules:
         - podman.socket
         - greetd.service
         - uupd.timer
-
     user:
       enabled:
         - gnome-keyring-daemon.socket

@@ -215,23 +215,23 @@ restore_akmodsbuild() {
     fi
 }
 
-log "Temporarily disabling akmodsbuild script for v4l2loopback."
-disable_akmodsbuild || exit 1
+# log "Temporarily disabling akmodsbuild script for v4l2loopback."
+# disable_akmodsbuild || exit 1
 
-log "Enabling RPM Fusion Free repo for v4l2loopback."
-dnf -y install \
-    https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+# log "Enabling RPM Fusion Free repo for v4l2loopback."
+# dnf -y install \
+#     https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
-log "Building and installing v4l2loopback kernel module packages."
-dnf install -y --setopt=install_weak_deps=False --setopt=tsflags=noscripts \
-    akmod-v4l2loopback
-akmods --force --verbose --kernels "${KERNEL_VERSION}" --kmod "v4l2loopback"
+# log "Building and installing v4l2loopback kernel module packages."
+# dnf install -y --setopt=install_weak_deps=False --setopt=tsflags=noscripts \
+#     akmod-v4l2loopback
+# akmods --force --verbose --kernels "${KERNEL_VERSION}" --kmod "v4l2loopback"
 
-FAIL_LOG_GLOB=/var/cache/akmods/v4l2loopback/*-for-${KERNEL_VERSION}.failed.log
+# FAIL_LOG_GLOB=/var/cache/akmods/v4l2loopback/*-for-${KERNEL_VERSION}.failed.log
 
-shopt -s nullglob
-FAIL_LOGS=( ${FAIL_LOG_GLOB} )
-shopt -u nullglob
+# shopt -s nullglob
+# FAIL_LOGS=( ${FAIL_LOG_GLOB} )
+# shopt -u nullglob
 
 if (( ${#FAIL_LOGS[@]} )); then
     error "v4l2loopback akmod build failed"
