@@ -21,6 +21,7 @@ modules:
         - scx-scheds
         - scx-tools
         - scx-manager
+        - sbsigntools
     replace:
       - from-repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-addons
         packages:
@@ -128,7 +129,6 @@ modules:
         - qt6ct
         - qt6-qttools
         - qt6-qtwayland
-        - sbsigntools
         - tldr
         - tuned-ppd
         - ublue-os-just
