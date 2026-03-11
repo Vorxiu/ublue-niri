@@ -1,0 +1,210 @@
+title: Welcome to Kanso Linux
+properties:
+  mode: "run-on-change"
+screens:
+  first-screen:
+    source: yafti.screen.title
+    values:
+      title: "Welcome to Kanso Linux!"
+      description: |
+        This guided installer will help you get started with your new system.
+  can-we-modify-your-flatpaks:
+    source: yafti.screen.consent
+    values:
+      title: Welcome, Traveler!
+      condition:
+        run: flatpak remotes --columns=name | grep fedora
+      description: |
+        We have detected the limited, Fedora-provided Flatpak remote on your system, whose applications are usually missing important codecs and other features. This step will therefore remove all basic Fedora Flatpaks from your system! We will instead switch all core Flatpak applications over to the vastly superior, unfiltered Flathub. If you don't want to do this, simply exit this installer.
+      actions:
+        - run: flatpak remote-delete --system --force fedora
+        - run: flatpak remote-delete --user --force fedora
+        - run: flatpak remove --system --noninteractive --all
+        - run: flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
+        - run: flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+  check-system-flathub:
+    source: yafti.screen.consent
+    values:
+      title: Missing Flathub Repository (System)
+      condition:
+        run: flatpak remotes --system --columns=name | grep flathub | wc -l | grep '^0$'
+      description: |
+        We have detected that you don't have Flathub's repository on your system. We will now add that repository to your system-wide list.
+      actions:
+        - run: flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
+  check-user-flathub:
+    source: yafti.screen.consent
+    values:
+      title: Missing Flathub Repository (User)
+      condition:
+        run: flatpak remotes --user --columns=name | grep flathub | wc -l | grep '^0$'
+      description: |
+        We have detected that you don't have Flathub's repository on your current user account. We will now add that repository to your account.
+      actions:
+        - run: flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+  intro-niri:
+    source: yafti.screen.title
+    values:
+      title: "Meet Niri"
+      description: |
+        Niri is a scrollable tiling Wayland compositor.
+        Windows live in an infinite horizontal strip — scroll right to see more.
+
+        Super + Space — App launcher
+        Super + Return — Dropdown terminal
+        Super + T — New terminal
+        Super + Q — Close window
+        Super + B — Browser
+        Super + E — File manager
+        Super + V — Clipboard history
+        Super + Shift + F — Fullscreen
+        Super + Shift + S — Screenshot
+        Super + ← / → — Move focus
+        Super + Shift + ← / → — Move window
+
+        Super + ? — View all keybinds
+
+  applications:
+    source: yafti.screen.package
+    values:
+      title: Application Installer
+      show_terminal: true
+      package_manager: yafti.plugin.flatpak
+      package_manager_defaults:
+        user: false
+        system: true
+      groups:
+        Recommended Apps:
+          description: Apps you might want for a desktop experience.
+          default: true
+          packages:
+            - Image Annotation Tool: be.alexandervanhee.gradia
+            - Video Player: org.gnome.Showtime
+            - Music Player: io.bassi.Amberol
+            - Flatseal (Permission Manager): com.github.tchx84.Flatseal
+            - Calculator: org.gnome.Calculator
+            - DistroShelf (DistroBox GUI): com.ranfdev.DistroShelf
+            - Document Viewer: org.gnome.Papers
+            - Sushi (File Previewer): org.gnome.NautilusPreviewer
+            - Text Editor: org.gnome.TextEditor
+            - Zen (Web Browser): app.zen_browser.zen
+        Additional Apps:
+          description: Other apps you may want.
+          default: false
+          packages:
+            - Bottles (Run Windows Apps on Linux): com.usebottles.bottles
+            - Deja Dup Backups(Backup Tool): org.gnome.DejaDup
+            - Fedora Media Writer: org.fedoraproject.MediaWriter
+            - Gearlever (App image Manager): it.mijorus.gearlever
+            - Local Send: org.localsend.localsend_app
+            - Mission Center (Task Manager): io.missioncenter.MissionCenter
+        Web Browsers:
+          default: false
+          packages:
+            - Brave: com.brave.Browser
+            - Google Chrome: com.google.Chrome
+            - Mozilla Firefox: org.mozilla.firefox
+            - Microsoft Edge: com.microsoft.Edge
+            - Vivaldi: com.vivaldi.Vivaldi
+            - Zen: app.zen_browser.zen
+        Communication Apps:
+          default: false
+          packages:
+            - Signal: org.signal.Signal
+            - Element: im.riot.Element
+            - Discord: com.discordapp.Discord
+            - Thunderbird: org.mozilla.Thunderbird
+            - Telegram: org.telegram.desktop
+            - ZapZap (Whatsapp): com.rtosta.zapzap
+        Gaming:
+          default: false
+          packages:
+            - Lutris: net.lutris.Lutris
+            - Heroic Games Launcher: com.heroicgameslauncher.hgl
+            - Faugus Launcher: io.github.Faugus.faugus-launcher
+            - Steam: com.valvesoftware.Steam
+            - Gamescope (Utility): org.freedesktop.Platform.VulkanLayer.gamescope
+            - MangoHUD (Utility): org.freedesktop.Platform.VulkanLayer.MangoHud
+            - SteamTinkerLaunch (Utility): com.valvesoftware.Steam.Utility.steamtinkerlaunch
+        Office:
+          default: false
+          packages:
+            - Collabora Online: com.collaboraoffice.Office
+            - LibreOffice: org.libreoffice.LibreOffice
+            - OnlyOffice: org.onlyoffice.desktopeditors
+            - Obsidian: md.obsidian.Obsidian
+        Development Tools:
+          description: Developer tools
+          default: false
+          packages:
+            - VSCodium: com.vscodium.codium
+            - Zed(Code Editer): dev.zed.Zed
+            - GitHub Desktop: io.github.shiftey.Desktop
+            - GNOME Boxes (Virtual Machines): org.gnome.Boxes
+
+  install-dev-tools:
+    source: yafti.screen.package
+    values:
+      title: Install Development Tools
+      show_terminal: true
+      package_manager: yafti.plugin.run
+      groups:
+        Visual Studio Code:
+          description: Install VS Code via brew from ublue tap.
+          default: false
+          packages:
+            - Install Visual Studio Code: ujust install-vscode
+        JetBrains Toolbox:
+          description: Manage all JetBrains IDEs (IntelliJ IDEA, PyCharm, GoLand, Rider, and more) from one place.
+          default: false
+          packages:
+            - Install JetBrains Toolbox: ujust install-jetbrains-toolbox
+        Neovim:
+          description: Install neovim with lazyVim's starter config.
+          default: false
+          packages:
+            - Install Neovim: brew install neovim 
+            - Install lazyVim Config: git clone https://github.com/LazyVim/starter ~/.config/nvim && rm -rf ~/.config/nvim/.git
+        Distrobox:
+          description: Create a Distrobox(container based development). 
+          default: false
+          condition:
+            run: which distrobox 2>/dev/null | wc -l | grep '^0$'
+          packages:
+            - Install Arch Distrobox: distrobox create --image ghcr.io/ublue-os/arch-toolbox:latest --name Arch-Distrobox
+            - Install Fedora Distrobox: distrobox create --image ghcr.io/ublue-os/fedora-toolbox:latest --name Fedora-Distrobox
+            - Install Ubuntu Distrobox: distrobox create --image ghcr.io/ublue-os/ubuntu-toolbox:latest --name Ubuntu-Distrobox
+
+  additional-setup:
+    source: yafti.screen.package
+    values:
+      title: Additional Setup
+      show_terminal: true
+      package_manager: yafti.plugin.run
+      groups:
+        Default Configurations:
+          description: Install the recommended default configs for your system (niri, shell, and other tooling). This sets up a solid baseline you can customise from.
+          default: true
+          packages:
+            - Install Default Configs: ujust install-default-configs
+        Secure Boot:
+          description: Enroll the custom Secure Boot key for your system. Required to boot with Secure Boot enabled when using a custom kernel or signed modules.
+          default: false
+          packages:
+            - Enroll Secure Boot Key: kitty -e ujust enroll-secure-boot-key && notify-send "Secure Boot" "key enrolled! Password kanso — Reboot to enroll key into MOK manager."
+
+  final-screen:
+    source: yafti.screen.title
+    values:
+      title: "All done!"
+      links:
+        - "Discover More Apps (Bazaar)":
+            run: /usr/bin/flatpak run page.kramo.Bazaar
+        - "Browse CLI Tools (bbrew)":
+            run: /usr/bin/kitty -e bbrew
+        - "Website":
+            run: /usr/bin/xdg-open https://ublue.it
+        - "Join the Discord Community":
+            run: /usr/bin/xdg-open https://discord.gg/XjG48C7VHx
+      description: |
+        Thanks for trying Kanso Linux! we hope you enjoy it.
