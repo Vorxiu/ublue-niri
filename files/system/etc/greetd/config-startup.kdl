@@ -50,8 +50,13 @@ layout {
 window-rule {
  open-fullscreen true
 }
-layout {
-    background-color "#15121a"
+overview {
+    backdrop-color "#15121a"
 }
-
-spawn-at-startup "sh" "-c" "gtkgreet; niri msg action quit --skip-confirmation"
+// Disable the hot corners.
+gestures {
+    hot-corners {
+        off
+    }
+}
+spawn-at-startup "sh" "-c" "GTK_THEME=adw-gtk3-dark; gtkgreet; niri msg action quit --skip-confirmation"
