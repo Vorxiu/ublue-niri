@@ -29,3 +29,12 @@ install-default-configs:
     set -euxo pipefail
     chezmoi update --no-tty --force
     cp -rn /etc/skel/.config/Code/User/settings.json ~/.config/Code/User/settings.json
+
+fix-gtk-theming:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    flatpak install org.gtk.Gtk3theme.adw-gtk3-dark
+    flatpak install org.gtk.Gtk3theme.adw-gtk3
+    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    echo "You might want to refresh the gtk template from colorscheme -> templates in noctalia settings"
