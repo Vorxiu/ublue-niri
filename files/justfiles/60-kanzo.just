@@ -1,3 +1,4 @@
+# intalls visual studio code from the ublue tap.
 install-vscode:
     #!/usr/bin/env bash
     set -euxo pipefail
@@ -9,13 +10,13 @@ install-vscode:
     code --install-extension ms-azuretools.vscode-containers
     cp -rn /etc/skel/.config/Code/User/settings.json ~/.config/Code/User/settings.json
     ujust fix-fonts
-
+# install jetbrains toolbox from the ublue tap, which is needed to install intellij and pycharm
 install-jetbrains-toolbox:
     #!/usr/bin/env bash
     set -euxo pipefail
     brew tap ublue-os/tap
     brew install --cask jetbrains-toolbox-linux
-
+# fix font issues with vscode.
 fix-fonts:
     #!/usr/bin/env bash
     set -euxo pipefail
@@ -23,13 +24,13 @@ fix-fonts:
     rm -rf ~/.cache/fontconfig/*
     fc-cache -f -v
     sudo fc-cache -f -v /usr/share/fonts /usr/local/share/fonts
-
+# force installs the default dotfiles
 install-default-configs:
     #!/usr/bin/env bash
     set -euxo pipefail
     chezmoi update --no-tty --force
     cp -rn /etc/skel/.config/Code/User/settings.json ~/.config/Code/User/settings.json
-
+#fix gtk theming
 fix-gtk-theming:
     #!/usr/bin/env bash
     set -euxo pipefail
@@ -38,3 +39,23 @@ fix-gtk-theming:
     gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     echo "You might want to refresh the gtk template from colorscheme -> templates in noctalia settings"
+# configure groups for docker, incus, libvirt, and dialout to avoid needing sudo for those.
+[group('System')]
+dx-group:
+    #!/usr/bin/pkexec bash
+    append_group() {
+        local group_name="$1"
+        if ! grep -q "^$group_name:" /etc/group; then
+            echo "Appending $group_name to /etc/group"
+            grep "^$group_name:" /usr/lib/group | sudo tee -a /etc/group > /dev/null
+        fi
+    }
+
+    GROUPS_ADD=("docker" "incus-admin" "libvirt" "dialout")
+
+    for GROUP_ADD in "${GROUPS_ADD[@]}" ; do
+        append_group $GROUP_ADD
+        usermod -aG $GROUP_ADD {{ `id -un` }}
+    done
+
+    echo "Reboot system and log back in to use docker, libvirt, incus, and serial connections."
