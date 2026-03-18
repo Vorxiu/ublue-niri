@@ -22,7 +22,7 @@ The `latest` tag will automatically point to the latest build.
 
 ## ISO
 
-Currently you can download the ISO from latest [github artifacts](https://github.com/Vorxiu/ublue-niri/actions/runs/23040017289/artifacts/5906120329).
+Currently you can download the ISO from the latest [GitHub Actions workflow run](https://github.com/Vorxiu/ublue-niri/actions/workflows/build-iso.yml).
 
 ## Verification
 
