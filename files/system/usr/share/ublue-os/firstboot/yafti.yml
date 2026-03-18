@@ -164,11 +164,18 @@ screens:
           default: true
           packages:
             - Install Default Configs: ujust install-default-configs
+        Enable-AutoLogin:
+          description: Enable auto login for greetd. Recommended when using LUKS encryption to avoid having to enter the password twice at boot.
+          default: true
+          packages:
+            - Enable Auto Login: ujust enable-auto-login
+            - Enable noctalia lockscreen on boot:  echo "spawn-sh {"qs -c noctalia-shell ipc call lockScreen lock";}" | tee ~/.config/niri/config.kdl
         Secure Boot:
           description: Enroll Secure Boot key to make secure boot work.
           default: false
           packages:
             - Enroll Secure Boot Key: kitty -e ujust enroll-secure-boot-key && notify-send "Secure Boot" "key enrolled! Password kanso — Reboot to enroll key into MOK manager."
+              
 
   final-screen:
     source: yafti.screen.title

@@ -55,12 +55,22 @@ dx-group:
             grep "^$group_name:" /usr/lib/group | sudo tee -a /etc/group > /dev/null
         fi
     }
-
     GROUPS_ADD=("docker" "incus-admin" "libvirt" "dialout")
-
     for GROUP_ADD in "${GROUPS_ADD[@]}" ; do
         append_group $GROUP_ADD
         usermod -aG $GROUP_ADD {{ `id -un` }}
     done
 
     echo "Reboot system and log back in to use docker, libvirt, incus, and serial connections."
+
+# enable auto login for greetd recommended when using luks encryption to avoid having to enter the password twice.
+[group('System')]
+enable-auto-login:
+    #!/usr/bin/bash
+    set -euxo pipefail
+    CURRENT_USER="$(id -un)"
+    if ! grep -q '^\[initial_session\]' /etc/greetd/config.toml; then
+        printf '\n[initial_session]\ncommand = "niri-session"\nuser = "%s"\n' "$CURRENT_USER" | pkexec tee -a /etc/greetd/config.toml
+        echo "Auto login enabled for user $CURRENT_USER. Reboot to apply changes."
+    fi
+    
