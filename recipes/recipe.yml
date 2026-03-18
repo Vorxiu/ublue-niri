@@ -36,7 +36,7 @@ modules:
     sign:
       key: /tmp/certs/MOK.key
       cert: /usr/share/cert/MOK.pem
-      mok-password: kansolinux
+      mok-password: universalblue
     secrets:
       - type: file
         source: ./MOK.key

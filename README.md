@@ -15,7 +15,7 @@ Full package list [here](https://github.com/Vorxiu/ublue-niri/blob/main/recipes/
 bootc switch ghcr.io/vorxiu/ublue-niri:latest
 systemctl reboot
 ```
-- Enroll the MOK key into MOK manager with password `kanso`
+- Enroll the MOK key into MOK manager with password `universalblue`
 - Re enable secure boot
 
 The `latest` tag will automatically point to the latest build.
@@ -47,4 +47,4 @@ ujust enroll-secure-boot-key
 
 reboot 
 
-> Mok password : kanso
+> Mok password : universalblue
