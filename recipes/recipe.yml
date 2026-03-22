@@ -98,6 +98,7 @@ modules:
         - fprintd-pam
         - fastfetch
         - git
+        - gcr
         - gnome-keyring
         - gvfs
         - gvfs-mtp
@@ -116,6 +117,7 @@ modules:
         - NetworkManager-openvpn
         - nm-connection-editor
         - niri
+        - python3-pyqt6
         - papirus-icon-theme
         - nwg-look
         - polkit
@@ -138,6 +140,7 @@ modules:
         - zoxide
         - zsh
         - xdg-user-dirs
+        
     remove:
       auto-remove: true
       packages:
