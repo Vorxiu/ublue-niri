@@ -5,7 +5,7 @@ set -euo pipefail
 mkdir -p /nix
 
 rm /usr/share/applications/btop.desktop
-
+sudo dnf install scdoc -y 
 # install app2unit
 git clone https://github.com/Vladimir-csp/app2unit.git /tmp/app2unit
 cd /tmp/app2unit
