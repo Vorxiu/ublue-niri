@@ -16,7 +16,7 @@ rm -rf /tmp/app2unit
 
 # install niri-settings
 git clone https://github.com/stefonarch/niri-settings.git /tmp/niri-settings
-cd /tmp
+cd /tmp/niri-settings
 echo "Installing to system..."
 # Install binary and .desktop file
 sudo cp -v niri-settings /usr/bin/niri-settings
