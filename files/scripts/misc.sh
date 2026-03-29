@@ -5,6 +5,7 @@ set -euo pipefail
 mkdir -p /nix
 
 rm /usr/share/applications/btop.desktop
+rm /usr/share/applications/htop.desktop
 
 sudo dnf install scdoc gzip -y 
 # install app2unit
