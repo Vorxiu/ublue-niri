@@ -54,6 +54,7 @@ screens:
           default: true
           packages:
             - Image Annotation Tool: be.alexandervanhee.gradia
+            - Text Editor: org.gnome.TextEditor
             - Video Player: org.gnome.Showtime
             - Music Player: io.bassi.Amberol
             - Flatseal (Permission Manager): com.github.tchx84.Flatseal
@@ -61,8 +62,7 @@ screens:
             - DistroShelf (DistroBox GUI): com.ranfdev.DistroShelf
             - Document Viewer: org.gnome.Papers
             - Sushi (File Previewer): org.gnome.NautilusPreviewer
-            - Text Editor: org.gnome.TextEditor
-            - Zen (Web Browser): app.zen_browser.zen
+            - Gearlever (App image Manager): it.mijorus.gearlever
         Additional Apps:
           description: Other apps you may want.
           default: false
@@ -70,7 +70,6 @@ screens:
             - Bottles (Run Windows Apps on Linux): com.usebottles.bottles
             - Deja Dup Backups(Backup Tool): org.gnome.DejaDup
             - Fedora Media Writer: org.fedoraproject.MediaWriter
-            - Gearlever (App image Manager): it.mijorus.gearlever
             - Local Send: org.localsend.localsend_app
             - Mission Center (Task Manager): io.missioncenter.MissionCenter
         Web Browsers:
@@ -132,12 +131,12 @@ screens:
           description: Install VS Code via brew from ublue tap.
           default: false
           packages:
-            - Install Visual Studio Code: ujust install-vscode
+            - Install Visual Studio Code: kitty -e ujust install-vscode
         JetBrains Toolbox:
           description: Manage all JetBrains IDEs (IntelliJ IDEA, PyCharm, GoLand, Rider, and more) from one place.
           default: false
           packages:
-            - Install JetBrains Toolbox: ujust install-jetbrains-toolbox
+            - Install JetBrains Toolbox: kitty -e ujust install-jetbrains-toolbox
         Neovim:
           description: Install neovim with lazyVim's starter config.
           default: false
@@ -148,7 +147,7 @@ screens:
           description: Create a Distrobox container for development. Choose from Arch, Fedora, or Ubuntu.
           default: false
           packages:
-            - Install Arch Distrobox: distrobox create --image ghcr.io/ublue-os/arch-toolbox:latest --name Arch-Distrobox
+            - Install Arch Distrobox:  distrobox create --image ghcr.io/ublue-os/arch-toolbox:latest --name Arch-Distrobox
             - Install Fedora Distrobox: distrobox create --image ghcr.io/ublue-os/fedora-toolbox:latest --name Fedora-Distrobox
             - Install Ubuntu Distrobox: distrobox create --image ghcr.io/ublue-os/ubuntu-toolbox:latest --name Ubuntu-Distrobox
 
@@ -166,7 +165,7 @@ screens:
             - Install Default Configs: ujust install-default-configs
         Enable-AutoLogin:
           description: Enable auto login for greetd. Recommended when using LUKS encryption to avoid having to enter the password twice at boot.
-          default: true
+          default: false
           packages:
             - Enable Auto Login: ujust enable-auto-login
             - Enable noctalia lockscreen on boot:  echo "spawn-sh {"qs -c noctalia-shell ipc call lockScreen lock";}" | tee ~/.config/niri/config.kdl
@@ -175,7 +174,6 @@ screens:
           default: false
           packages:
             - Enroll Secure Boot Key: kitty -e ujust enroll-secure-boot-key && notify-send "Secure Boot" "key enrolled! Password kanso — Reboot to enroll key into MOK manager."
-              
 
   final-screen:
     source: yafti.screen.title
