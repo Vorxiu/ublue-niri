@@ -180,13 +180,13 @@ screens:
       title: "All done!"
       links:
         - "Discover More Apps (Bazaar)":
-            run: /usr/bin/flatpak run page.kramo.Bazaar
+            run: /usr/bin/bazaar
         - "Browse CLI Tools (bbrew)":
             run: /usr/bin/kitty -e bbrew
         - "Ublue Website":
             run: /usr/bin/xdg-open https://ublue.it
         - "Niri Wiki":
-            run: /usr/bin/xdg-open https://github.com/niri-wm/niri/wiki/Configuration:-Overview
+            run: /usr/bin/xdg-open https://niri-wm.github.io/niri/
         - "Kanso Linux repository":
             run: /usr/bin/xdg-open https://github.com/vorxiu/ublue-niri
       description: |
