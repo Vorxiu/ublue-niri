@@ -55,8 +55,6 @@ screens:
           packages:
             - Image Annotation Tool: be.alexandervanhee.gradia
             - Text Editor: org.gnome.TextEditor
-            - Video Player: org.gnome.Showtime
-            - Music Player: io.bassi.Amberol
             - Flatseal (Permission Manager): com.github.tchx84.Flatseal
             - Calculator: org.gnome.Calculator
             - DistroShelf (DistroBox GUI): com.ranfdev.DistroShelf
@@ -67,6 +65,7 @@ screens:
           description: Other apps you may want.
           default: false
           packages:
+            - Ignition (Startup Manager): io.github.flattool.ignition
             - Bottles (Run Windows Apps on Linux): com.usebottles.bottles
             - Deja Dup Backups(Backup Tool): org.gnome.DejaDup
             - Fedora Media Writer: org.fedoraproject.MediaWriter
