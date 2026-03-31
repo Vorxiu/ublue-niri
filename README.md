@@ -1,12 +1,12 @@
 # ublue-niri &nbsp; [![bluebuild build badge](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml/badge.svg)](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml)
 
-A base niri image with noctalia-shell for an OOTB experience
-Full package list [here](https://github.com/Vorxiu/ublue-niri/blob/main/recipes/recipe.yml)
+A minimal, opinionated Niri Wayland compositor image with noctalia-shell  built on Universal Blue.Full package list [here](https://github.com/Vorxiu/ublue-niri/blob/main/recipes/recipe.yml)
 
 - CachyOS kernel
 - dotfiles for niri,noctalia,zsh,kitty
 - some nice to haves(Bazaar,niri-settings)
 
+dot files for the repo are [here](https://github.com/Vorxiu/niri-dots).
 ## Installation
 
 - Disable secure boot and on any atomic distro with bootc run
