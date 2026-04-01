@@ -7,7 +7,7 @@ mkdir -p /nix
 rm /usr/share/applications/btop.desktop
 rm /usr/share/applications/htop.desktop
 
-sudo dnf install scdoc gzip -y 
+sudo dnf install scdoc gzip -y
 # install app2unit
 git clone https://github.com/Vladimir-csp/app2unit.git /tmp/app2unit
 cd /tmp/app2unit
@@ -49,10 +49,12 @@ rm -rf /tmp/niri-settings
 
 # rm -rf /tmp/nautilus-code
 
+# install niri-float-sticky
 sudo dnf install go -y
+cd
 git clone https://github.com/probeldev/niri-float-sticky.git /tmp/niri-float-sticky
 cd /tmp/niri-float-sticky
-go build -o niri-float-sticky
+go build
 echo "Installing niri-float-sticky..."
 sudo mv niri-float-sticky /usr/bin/niri-float-sticky
 rm -rf /tmp/niri-float-sticky
@@ -60,6 +62,7 @@ rm -rf /tmp/niri-float-sticky
 
 # install regreet (Test)
 sudo dnf install cargo -y
+cd
 git clone https://github.com/rharish101/ReGreet.git /tmp/regreet
 cd /tmp/regreet
 cargo build --release
