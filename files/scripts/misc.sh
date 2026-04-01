@@ -57,4 +57,13 @@ echo "Installing niri-float-sticky..."
 sudo mv niri-float-sticky /usr/bin/niri-float-sticky
 rm -rf /tmp/niri-float-sticky
 
-sudo dnf remove scdoc go -y
+
+# install regreet (Test)
+sudo dnf install cargo -y
+git clone https://github.com/rharish101/ReGreet.git /tmp/regreet
+cd /tmp/regreet
+cargo build --release
+echo "Installing ReGreet..."
+sudo mv target/release/regreet /usr/bin/regreet
+
+sudo dnf remove scdoc go cargo -y
