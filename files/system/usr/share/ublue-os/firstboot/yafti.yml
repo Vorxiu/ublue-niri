@@ -146,9 +146,9 @@ screens:
           description: Create a Distrobox container for development. Choose from Arch, Fedora, or Ubuntu.
           default: false
           packages:
-            - Install Arch Distrobox:  distrobox create --image ghcr.io/ublue-os/arch-toolbox:latest --name Arch-Distrobox
-            - Install Fedora Distrobox: distrobox create --image ghcr.io/ublue-os/fedora-toolbox:latest --name Fedora-Distrobox
-            - Install Ubuntu Distrobox: distrobox create --image ghcr.io/ublue-os/ubuntu-toolbox:latest --name Ubuntu-Distrobox
+            - Install Arch Distrobox:  distrobox create --image ghcr.io/ublue-os/arch-toolbox:latest --name Arch-Distrobox --additional-packages "xdg-utils"
+            - Install Fedora Distrobox: distrobox create --image ghcr.io/ublue-os/fedora-toolbox:latest --name Fedora-Distrobox --additional-packages "xdg-utils"
+            - Install Ubuntu Distrobox: distrobox create --image ghcr.io/ublue-os/ubuntu-toolbox:latest --name Ubuntu-Distrobox --additional-packages "xdg-utils"
 
   additional-setup:
     source: yafti.screen.package
