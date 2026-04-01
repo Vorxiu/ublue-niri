@@ -40,15 +40,15 @@ rm -rf /tmp/niri-settings
 
 
 # nautilus extensions
- echo "Installing Nautilus Code extension..."
- cd
- sudo dnf install meson ninja -y
- git clone https://github.com/realmazharhussain/nautilus-code.git /tmp/nautilus-code
- cd /tmp/nautilus-code
- meson setup build
- meson install -C build
+ # echo "Installing Nautilus Code extension..."
+ # cd
+ # sudo dnf install meson ninja -y
+ # git clone https://github.com/realmazharhussain/nautilus-code.git /tmp/nautilus-code
+ # cd /tmp/nautilus-code
+ # meson setup build
+ # meson install -C build
 
- rm -rf /tmp/nautilus-code
+ # rm -rf /tmp/nautilus-code
 
 # install niri-float-sticky
 sudo dnf install go -y
@@ -71,4 +71,4 @@ echo "Installing ReGreet..."
 sudo mv target/release/regreet /usr/bin/regreet
 rm -rf /tmp/regreet
 
-sudo dnf remove scdoc go cargo pkg-config glib2-devel -y
+sudo dnf remove scdoc go cargo -y
