@@ -157,6 +157,7 @@ modules:
         - podman.socket
         - greetd.service
         - uupd.timer
+        - scx_loader.service
     user:
       enabled:
         - gnome-keyring-daemon.socket
