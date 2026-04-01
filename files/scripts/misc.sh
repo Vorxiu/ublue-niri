@@ -65,5 +65,6 @@ cd /tmp/regreet
 cargo build --release
 echo "Installing ReGreet..."
 sudo mv target/release/regreet /usr/bin/regreet
+rm -rf /tmp/regreet
 
 sudo dnf remove scdoc go cargo -y
