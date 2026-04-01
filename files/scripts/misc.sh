@@ -7,12 +7,6 @@ mkdir -p /nix
 rm /usr/share/applications/btop.desktop
 rm /usr/share/applications/htop.desktop
 
-sudo dnf install scdoc gzip -y
-# install app2unit
-git clone https://github.com/Vladimir-csp/app2unit.git /tmp/app2unit
-cd /tmp/app2unit
-sudo make install
-
 # install niri-settings
 git clone https://github.com/stefonarch/niri-settings.git /tmp/niri-settings
 cd /tmp/niri-settings
@@ -60,15 +54,4 @@ echo "Installing niri-float-sticky..."
 sudo mv niri-float-sticky /usr/bin/niri-float-sticky
 rm -rf /tmp/niri-float-sticky
 
-
-# install regreet (Test)
-# sudo dnf install cargo pkg-config glib2-devel gtk4-devel cairo-devel cairo-gobject-devel pkgconf-pkg-config gdk-pixbuf2-devel  -y
-# cd
-# git clone https://github.com/rharish101/ReGreet.git /tmp/regreet
-# cd /tmp/regreet
-# cargo build --release
-# echo "Installing ReGreet..."
-# sudo mv target/release/regreet /usr/bin/regreet
-# rm -rf /tmp/regreet
-
-sudo dnf remove scdoc go cargo pkg-config glib2-devel gtk4-devel cairo-devel cairo-gobject-devel pkgconf-pkg-config gdk-pixbuf2-devel   -y
+sudo dnf remove  go -y

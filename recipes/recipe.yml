@@ -72,6 +72,8 @@ modules:
       cleanup: true
       copr:
         - ublue-os/packages
+        - celestelove/app2unit
+        - washkinazy/wayland-wm-extras
       nonfree: rpmfusion
     install:
       allow-erasing: true
@@ -83,6 +85,7 @@ modules:
         - swaylock
         - swayidle
       packages:
+        - app2unit
         - adw-gtk3-theme
         - bazaar
         - btop
@@ -126,6 +129,7 @@ modules:
         - qt5-qtwayland
         - qt6ct
         - qt6-qtwayland
+        - regreet
         - tldr
         - tailscale
         - tuned-ppd
