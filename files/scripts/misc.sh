@@ -62,7 +62,7 @@ rm -rf /tmp/niri-float-sticky
 
 
 # install regreet (Test)
-sudo dnf install cargo pkg-config glib2-devel -y
+sudo dnf install cargo pkg-config glib2-devel gtk4-devel cairo-devel cairo-gobject-devel pkgconf-pkg-config gdk-pixbuf2-devel  -y
 cd
 git clone https://github.com/rharish101/ReGreet.git /tmp/regreet
 cd /tmp/regreet
@@ -71,4 +71,4 @@ echo "Installing ReGreet..."
 sudo mv target/release/regreet /usr/bin/regreet
 rm -rf /tmp/regreet
 
-sudo dnf remove scdoc go cargo -y
+sudo dnf remove scdoc go cargo pkg-config glib2-devel gtk4-devel cairo-devel cairo-gobject-devel pkgconf-pkg-config gdk-pixbuf2-devel   -y
