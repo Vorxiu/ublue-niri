@@ -1,6 +1,6 @@
-# ublue-niri &nbsp; [![bluebuild build badge](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml/badge.svg)](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml)
+# Kanso-linux &nbsp; [![bluebuild build badge](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml/badge.svg)](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml)
 
-A minimal, opinionated Niri Wayland compositor image with noctalia-shell  built on Universal Blue.Full package list [here](https://github.com/Vorxiu/ublue-niri/blob/main/recipes/recipe.yml)
+An opinionated Niri Wayland compositor image with noctalia-shell  built on Universal Blue
 
 - CachyOS kernel
 - dotfiles for niri,noctalia,zsh,kitty
