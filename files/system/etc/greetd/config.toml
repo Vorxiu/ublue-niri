@@ -3,4 +3,4 @@ vt = 1
 
 [default_session]
 command = "niri -c /etc/greetd/config-startup.kdl"
-user = "greeter"
+user = "greetd"
