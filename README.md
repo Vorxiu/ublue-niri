@@ -1,12 +1,13 @@
 # Kanso-linux &nbsp; [![bluebuild build badge](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml/badge.svg)](https://github.com/vorxiu/ublue-niri/actions/workflows/build.yml)
+![Screenshot 1](Screenshots/1.png)
 
-An opinionated Niri Wayland compositor image with noctalia-shell  built on Universal Blue
+An opinionated Niri Wayland compositor image with noctalia-shell  built on Universal Blue using bluebuild.
 
 - CachyOS kernel
-- dotfiles for niri,noctalia,zsh,kitty
+- dotfiles for niri,noctalia,zsh,etc
 - some nice to haves(Bazaar,niri-settings)
 
-dot files for the repo are [here](https://github.com/Vorxiu/niri-dots).
+dot files for the image are [here](https://github.com/Vorxiu/niri-dots).
 ## Installation
 
 - Disable secure boot and on any atomic distro with bootc run
@@ -30,6 +31,12 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/Vorxiu/kanso
 ```
+
+## Screenshots
+
+![Screenshot 2](Screenshots/2.png)
+![Screenshot 3](Screenshots/3.png)
+
 
 #### FIX VS CODE FONTS AND ICONS
 
