@@ -31,27 +31,3 @@ sudo cp -v niri-settings.svg /usr/share/icons/hicolor/scalable/apps/niri-setting
 echo ""
 echo "Installation finished."
 rm -rf /tmp/niri-settings
-
-
-# nautilus extensions
- # echo "Installing Nautilus Code extension..."
- # cd
- # sudo dnf install meson ninja -y
- # git clone https://github.com/realmazharhussain/nautilus-code.git /tmp/nautilus-code
- # cd /tmp/nautilus-code
- # meson setup build
- # meson install -C build
-
- # rm -rf /tmp/nautilus-code
-
-# install niri-float-sticky
-sudo dnf install go -y
-cd
-git clone https://github.com/probeldev/niri-float-sticky.git /tmp/niri-float-sticky
-cd /tmp/niri-float-sticky
-go build
-echo "Installing niri-float-sticky..."
-sudo mv niri-float-sticky /usr/bin/niri-float-sticky
-rm -rf /tmp/niri-float-sticky
-
-sudo dnf remove  go -y
