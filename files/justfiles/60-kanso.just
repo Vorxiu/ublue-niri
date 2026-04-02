@@ -40,8 +40,17 @@ fix-gtk-theming:
     set -euxo pipefail
     flatpak install org.gtk.Gtk3theme.adw-gtk3-dark
     flatpak install org.gtk.Gtk3theme.adw-gtk3
+    pkexec flatpak override --filesystem=xdg-config/gtk-3.0:rw
+    pkexec flatpak override --filesystem=xdg-config/gtk-4.0:rw
+    rm ~/.config/gtk-4.0/gtk.css && rm ~/.config/gtk-4.0/gtk-dark.css
     gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    cp /usr/share/themes/adw-gtk3-dark/gtk-4.0/gtk-dark.css ~/.config/gtk-4.0/gtk-dark.css
+    cp /usr/share/themes/adw-gtk3/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css
+    ln -s /usr/share/themes/adw-gtk3-dark/gtk-4.0/libadwaita-tweaks.css libadwaita-tweaks.css
+    ln -s /usr/share/themes/adw-gtk3-dark/gtk-4.0/libadwaita.css libadwaita.css
+    echo "@import url('noctalia.css') ;" >> ~/.config/gtk-4.0/gtk-dark.css
+    echo "@import url('noctalia.css') ;" >> ~/.config/gtk-4.0/gtk.css
     echo "You might want to refresh the gtk template from colorscheme -> templates in noctalia settings"
 
 # configure groups for docker, incus, libvirt, and dialout to avoid needing sudo for those.
