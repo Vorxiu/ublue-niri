@@ -4,12 +4,12 @@ properties:
   path: "~/.config/yafti/last-run"
 actions:
   pre:
-  - run: notify-send "Kanso Linux" "Starting first boot setup..."
-  - run: brew install Valkyrie00/homebrew-bbrew/bbrew
-  - yafti.plugin.flatpak:
-      install: org.gnome.Calculator
+    - run: notify-send "Kanso Linux" "Starting first boot setup..."
+    - run: brew install Valkyrie00/homebrew-bbrew/bbrew
+    - yafti.plugin.flatpak:
+        install: org.gnome.Calculator
   post:
-  - run: notify-send "Kanso Linux" "First boot setup complete! Enjoy your new system."
+    - run: notify-send "Kanso Linux" "First boot setup complete! Enjoy your new system."
 
 screens:
   first-screen:
@@ -38,7 +38,7 @@ screens:
         Super + ← / → — Move focus
         Super + Shift + ← / → — Move window
         Super + ? — View all keybinds
-    
+
   applications:
     source: yafti.screen.package
     values:
@@ -125,7 +125,7 @@ screens:
       package_manager: yafti.plugin.run
       groups:
         VS codium:
-          description: Install VSCodium via brew from ublue tap.
+          description: Install VSCodium via flatpak
           default: false
           packages:
             - Install VSCodium: flatpak install --system --noninteractive dev.vscodium.codium && notify-send "VSCodium" "installed"
@@ -148,13 +148,13 @@ screens:
           description: Install neovim with lazyVim's starter config.
           default: false
           packages:
-            - Install Neovim: brew install neovim 
+            - Install Neovim: brew install neovim
             - Install lazyVim Config: git clone https://github.com/LazyVim/starter ~/.config/nvim && rm -rf ~/.config/nvim/.git
         Distrobox:
           description: Create a Distrobox container for development. Choose from Arch, Fedora, or Ubuntu.
           default: false
           packages:
-            - Install Arch Distrobox:  distrobox create --image ghcr.io/ublue-os/arch-toolbox:latest --name Arch-Distrobox --additional-packages "xdg-utils" "fzf" "zoxide"
+            - Install Arch Distrobox: distrobox create --image ghcr.io/ublue-os/arch-toolbox:latest --name Arch-Distrobox --additional-packages "xdg-utils" "fzf" "zoxide"
             - Install Fedora Distrobox: distrobox create --image ghcr.io/ublue-os/fedora-toolbox:latest --name Fedora-Distrobox --additional-packages "xdg-utils" "fzf" "zoxide"
             - Install Ubuntu Distrobox: distrobox create --image ghcr.io/ublue-os/ubuntu-toolbox:latest --name Ubuntu-Distrobox --additional-packages "xdg-utils" "fzf" "zoxide"
 
@@ -175,7 +175,7 @@ screens:
           default: false
           packages:
             - Enable Auto Login: ujust enable-auto-login
-            - Enable noctalia lockscreen on boot:  echo "spawn-sh {"qs -c noctalia-shell ipc call lockScreen lock";}" | tee ~/.config/niri/config.kdl
+            - Enable noctalia lockscreen on boot: echo "spawn-sh {"qs -c noctalia-shell ipc call lockScreen lock";}" | tee ~/.config/niri/config.kdl
         Secure Boot:
           description: Enroll Secure Boot key to make secure boot work.
           default: false
