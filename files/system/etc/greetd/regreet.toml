@@ -4,7 +4,7 @@
 
 [background]
 # Path to the background image
-path = "/usr/share/backgrounds/default-dark.jxl"
+path = "/etc/xdg/quickshell/noctalia-shell/Assets/Wallpaper/noctalia.png"
 
 # How the background image covers the screen if the aspect ratio doesn't match
 # Available values: "Fill", "Contain", "Cover", "ScaleDown"
@@ -33,7 +33,7 @@ font_name = "Jetbrains mono nerd 16"
 icon_theme_name = "Adwaita"
 
 # GTK theme name
-theme_name = "adw-gtk3"
+theme_name = "adw-gtk3-dark"
 
 [commands]
 # The command used to reboot the system
