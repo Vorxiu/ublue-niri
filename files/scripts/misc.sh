@@ -35,3 +35,10 @@ sudo cp -v niri-settings.svg /usr/share/icons/hicolor/scalable/apps/niri-setting
 echo ""
 echo "Installation finished."
 rm -rf /tmp/niri-settings
+
+
+# install sddm-noctalia theme
+git clone https://github.com/vorxiu/sddm-noctalia.git /tmp/sddm-noctalia
+sudo cp -r /tmp/sddm-noctalia/* /usr/share/sddm/themes/noctalia/
+# make the config file writable by noctalia
+sudo chmod 666 /usr/share/sddm/themes/sddm-noctalia/*.conf
