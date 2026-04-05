@@ -39,6 +39,7 @@ rm -rf /tmp/niri-settings
 cd / 
 # install sddm-noctalia theme
 git clone https://github.com/vorxiu/sddm-noctalia.git /tmp/sddm-noctalia
+mkdir -p /usr/share/sddm/themes/noctalia
 sudo cp -r /tmp/sddm-noctalia/* /usr/share/sddm/themes/noctalia/
 # make the config file writable by noctalia
 sudo chmod 666 /usr/share/sddm/themes/sddm-noctalia/*.conf
