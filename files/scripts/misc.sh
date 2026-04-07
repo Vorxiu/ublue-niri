@@ -43,5 +43,8 @@ sudo mkdir -p /etc/sddm/themes/sddm-noctalia
 git clone https://github.com/vorxiu/sddm-noctalia.git /tmp/sddm-noctalia
 sudo cp -r /tmp/sddm-noctalia /etc/sddm/themes/sddm-noctalia
 # make the config file writable by noctalia
-sudo chmod 666 /etc/sddm/themes/sddm-noctalia/*.conf
+ls /etc/sddm/themes/sddm-noctalia/*.conf
+sudo chmod 666 /etc/sddm/themes/sddm-noctalia/template.conf
+sudo chmod 666 /etc/sddm/themes/sddm-noctalia/theme.conf
+
 rm -rf /tmp/sddm-noctalia
