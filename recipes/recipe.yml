@@ -126,6 +126,7 @@ modules:
         - qt5-qtwayland
         - qt6ct
         - qt6-qtwayland
+        - qt6-qtcompat
         - sddm
         - tldr
         - tailscale
