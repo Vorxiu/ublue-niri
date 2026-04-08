@@ -1,5 +1,5 @@
 {
   "window.titleBarStyle": "custom",
-  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono' 'Cascadia Code', 'Droid Sans Mono', 'monospace', monospace, 'Symbols Nerd Font Mono'",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono','JetBrainsMono NF', 'Cascadia Code', 'Droid Sans Mono', 'monospace', monospace, 'Symbols Nerd Font Mono'",
   "update.mode": "none"
 }
