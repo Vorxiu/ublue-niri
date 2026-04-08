@@ -126,7 +126,7 @@ modules:
         - qt5-qtwayland
         - qt6ct
         - qt6-qtwayland
-        - qt6-qtcompat
+        - qt6-qt5compat
         - sddm
         - tldr
         - tailscale
@@ -162,6 +162,7 @@ modules:
         - sddm.service
         - uupd.timer
         - scx_loader.service
+        - chronyd.service
     user:
       enabled:
         - gnome-keyring-daemon.socket
@@ -181,6 +182,17 @@ modules:
   - type: script
     scripts:
       - misc.sh
+
+  - type: default-flatpaks
+    configurations:
+      - notify: false
+        scope: system
+        repo:
+          title: Flathub (system)
+        install: 
+          - com.github.tchx84.Flatseal
+          - io.missioncenter.MissionCenter
+          - it.mijorus.gearlever
 
   - type: yafti
 
