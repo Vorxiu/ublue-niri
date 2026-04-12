@@ -148,10 +148,8 @@ modules:
     remove:
       auto-remove: true
       packages:
-        - weston
         - firefox
         - firefox-langpacks
-        - breeze-icon-theme
         - waybar
         - nvtop
 
