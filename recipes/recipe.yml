@@ -128,6 +128,8 @@ modules:
         - qt6-qtwayland
         - qt6-qt5compat
         - sddm
+        - setroubleshoot
+        - setroubleshoot-server
         - tldr
         - tailscale
         - tuned-ppd
