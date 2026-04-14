@@ -1,0 +1,23 @@
+# Web browsers
+app/org.mozilla.firefox
+
+# core apps
+app/org.gnome.Calculator
+app/org.gnome.TextEditor
+app/org.gnome.Papers
+app/io.missioncenter.MissionCenter
+
+# Office suite
+org.libreoffice.LibreOffice
+
+# Themes
+runtime/org.gtk.Gtk3theme.adw-gtk3
+runtime/org.gtk.Gtk3theme.adw-gtk3-dark
+
+# Development tools
+app/com.github.tchx84.Flatseal
+
+# miscs
+it.mijorus.gearlever
+io.github.flattool.ignition
+org.pvermeer.WebAppHub

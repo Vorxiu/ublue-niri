@@ -118,6 +118,7 @@ modules:
         - nm-connection-editor
         - niri
         - python3-pyqt6
+        - powertop
         - papirus-icon-theme
         - nwg-look
         - mpv
