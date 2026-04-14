@@ -23,9 +23,6 @@ jobs:
       - name: Maximize build space
         uses: ublue-os/remove-unwanted-software@v9
 
-      - name: Install bluebuild cli
-        run: bash <(curl -s https://raw.githubusercontent.com/blue-build/cli/main/install.sh)
-
       - name: set release date
         run: |
           echo "RELEASE_DATE=$(date --rfc-3339=date)" >> ${GITHUB_ENV}
@@ -34,7 +31,7 @@ jobs:
         id: build
         uses: ublue-os/titanoboa@main
         with:
-          image-ref: ghcr.io/ublue-os/bluefin-dx:gts
+          image-ref: ghcr.io/vorxiu/kanso
           flatpaks-list: ${{ github.workspace }}/flatpaks/system-flatpaks.list
           hook-post-rootfs: ${{ github.workspace }}/iso_files/configure_iso_anaconda.sh
           kargs: ""
@@ -52,7 +49,7 @@ jobs:
           name: kansoLinux-${{ env.RELEASE_DATE }}-iso
           path: output/*.iso
           if-no-files-found: error
-          retention-days: 60
+          retention-days: 30
           archive: false
 
       - name: Upload checksum as artifact
@@ -61,5 +58,5 @@ jobs:
           name: kansoLinux-${{ env.RELEASE_DATE }}-checksum
           path: output/*-CHECKSUM
           if-no-files-found: error
-          retention-days: 60
+          retention-days: 30
           archive: false
