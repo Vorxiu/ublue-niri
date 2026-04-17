@@ -109,6 +109,7 @@ modules:
         - gvfs-archive
         - gvfs-nfs
         - gvfs-smb
+        - gnome-disk-utility
         - kitty
         - nautilus
         - noctalia-shell
